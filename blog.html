@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Antique Clock | Heritage Restoration & Repair</title>
+  <!-- Fonts & Icons (preserved from all blocks) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- ====== STYLES FROM SECOND BLOCK (main content sections) - exactly as provided ====== -->
+
+  <style>
+    /* === second block original styles (hero, services, process, gallery, contact) === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('./image/Antique\ Clock.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      color: #2e241f;
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(250, 242, 225, 0.82);
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./image/Antique\ Clock.jpg');
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(160, 120, 80, 0.25);
+      background-color: rgba(255, 250, 240, 0.6);
+      backdrop-filter: blur(1px);
+      border-radius: 0px;
+    }
+    .section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 2.6rem;
+      margin-bottom: 48px;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #b8860b;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    .hero {
+      background: linear-gradient(112deg, #2f241ecc 0%, #4a3528cc 100%), url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c6a?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      color: #fef2e0;
+      padding: 100px 0 100px;
+      text-align: center;
+      border-bottom: 1px solid #c6a15b;
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #c49a2b;
+      color: #2e241f;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .btn:hover {
+      background-color: #e0b354;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #e6c87a;
+      color: #e6c87a;
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: #e6c87a;
+      color: #2e241f;
+    }
+
+    .services-grid, .steps-grid, .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 36px;
+      margin-top: 20px;
+    }
+    .service-card, .step-card, .gallery-card {
+      background: #fffcf5ee;
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      border: 1px solid #f0e2cf;
+    }
+    .service-card:hover, .step-card:hover, .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.12);
+    }
+    .service-card i, .step-card i {
+      font-size: 2.8rem;
+      color: #b8860b;
+      margin-bottom: 20px;
+    }
+    .service-card h3, .step-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .service-card p, .step-card p {
+      color: #4e3e34;
+    }
+
+    .step-card {
+      position: relative;
+    }
+    .step-number {
+      background: #dbb45c;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #2a1f18;
+      font-weight: bold;
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.2s;
+    }
+    .gallery-card p {
+      font-weight: 600;
+      color: #7a5a3a;
+    }
+
+    .hybrid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .testimonial-block {
+      background: #fff6edee;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    }
+    .testimonial-card {
+      margin-bottom: 28px;
+      border-left: 4px solid #c49a2b;
+      padding-left: 20px;
+    }
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .client-name {
+      font-weight: 700;
+      color: #b37b2e;
+    }
+    .contact-form {
+      background: #ffffffdb;
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid #ebd5b3;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 40px;
+      border: 1px solid #dcc8aa;
+      background: #fffbf5;
+      font-family: 'Inter', sans-serif;
+      transition: 0.2s;
+    }
+    .form-group textarea {
+      border-radius: 24px;
+      resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #b8860b;
+      box-shadow: 0 0 0 2px rgba(184,134,11,0.2);
+    }
+    .submit-btn {
+      background: #8b5a2b;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .submit-btn:hover {
+      background: #a06e38;
+    }
+
+    @media (max-width: 850px) {
+      .hybrid-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      .section {
+        padding: 60px 0;
+      }
+    }
+    @media (max-width: 550px) {
+      .services-grid, .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .badge {
+      background: #e6c87a20;
+      display: inline-block;
+      border-radius: 50px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  </style>
+
+  <!-- ====== STYLES FROM THIRD BLOCK (footer) - exactly as provided ====== -->
+  <style>
+    /* footer styles - preserved */
+    footer {
+      background: var(--cream-mid);
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-brand .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+    .footer-logo i {
+      font-size: 1.45rem;
+      color: var(--gold);
+    }
+    .footer-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.38rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .footer-brand p {
+      font-size: .85rem;
+      color: var(--brown-mid);
+      line-height: 1.72;
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .social-row {
+      display: flex;
+      gap: .5rem;
+      margin-top: 1.1rem;
+    }
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .82rem;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: all .18s;
+    }
+    .social-btn:hover {
+      background: rgba(184, 124, 79, .12);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    .footer-col h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 1.15rem;
+      color: var(--brown-dark);
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: .58rem;
+    }
+    .footer-col a {
+      text-decoration: none;
+      font-size: .85rem;
+      color: var(--brown-mid);
+      transition: color .18s;
+    }
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      margin-bottom: .6rem;
+      font-size: 0.85rem;
+      color: var(--brown-mid);
+    }
+    .contact-row i {
+      color: var(--gold);
+      width: 15px;
+      margin-top: 2px;
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.3rem 0;
+      font-size: .81rem;
+      color: var(--brown-mid);
+      flex-wrap: wrap;
+    }
+    .legal {
+      display: flex;
+      gap: 1.4rem;
+    }
+    .legal a {
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .legal a:hover {
+      color: var(--gold);
+    }
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.8rem;
+      }
+      .footer-brand .footer-logo { justify-content: center; }
+      .contact-row { justify-content: center; }
+      .social-row { justify-content: center; }
+      .footer-bottom { flex-direction: column; gap: 0.7rem; text-align: center; }
+      .legal { justify-content: center; }
+    }
+  </style>
+
+  <!-- ====== ADDITIONAL NON-INTRUSIVE BACKGROUND IMAGES FOR EACH SECTION (no original code changed) ====== -->
+  <style>
+    /* Extra backgrounds layered without altering original selectors */
+    #hero {
+      position: relative;
+      background: linear-gradient(112deg, #2f241ecc 0%, #4a3528cc 100%), url('./image/Antique\ Clock.jpg') !important;
+      background-size: cover !important;
+      background-position: center 30% !important;
+    }
+    #services {
+      position: relative;
+      background-image: url('./image/Antique\ Clock.jpg') !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      background-position: center !important;
+    }
+    #services::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(250, 242, 225, 0.88);
+      z-index: 0;
+      pointer-events: none;
+    }
+    #services .container {
+      position: relative;
+      z-index: 2;
+    }
+    #process {
+      position: relative;
+      background-image: url('./image/Antique\ Clock.jpg') !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      background-position: center !important;
+    }
+    #process::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(251, 245, 234, 0.85);
+      z-index: 0;
+      pointer-events: none;
+    }
+    #process .container {
+      position: relative;
+      z-index: 2;
+    }
+    #gallery {
+      position: relative;
+      background-image: url('./image/Antique\ Clock.jpg') !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      background-position: center !important;
+    }
+    #gallery::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 250, 240, 0.88);
+      z-index: 0;
+      pointer-events: none;
+    }
+    #gallery .container {
+      position: relative;
+      z-index: 2;
+    }
+    #consult {
+      position: relative;
+      background-image: url('./image/Antique\ Clock.jpg') !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      background-position: center !important;
+    }
+    #consult::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(254, 246, 234, 0.9);
+      z-index: 0;
+      pointer-events: none;
+    }
+    #consult .container {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+
+  <!-- ====== DARK MODE COMPATIBILITY FOR HERO (no original code changed) ====== -->
+  <style>
+    body.dark #hero {
+      background: linear-gradient(112deg, #0f0c0acc 0%, #2a1f18cc 100%), url('./image/Antique\ Clock.jpg') !important;
+    }
+    body.dark .hero {
+      color: #fef2e0;
+    }
+    /* Full dark mode compatibility for all sections, cards, forms */
+    body.dark::before {
+      background-color: rgba(20, 18, 16, 0.85) !important;
+    }
+    body.dark .section {
+      background-color: rgba(28, 25, 22, 0.75);
+      backdrop-filter: blur(2px);
+      border-bottom-color: rgba(184, 124, 79, 0.35);
+    }
+    body.dark .service-card,
+    body.dark .step-card,
+    body.dark .gallery-card {
+      background: #2b241eee;
+      border-color: #5f4a32;
+    }
+    body.dark .service-card p,
+    body.dark .step-card p,
+    body.dark .gallery-card p {
+      color: #ddd0c0;
+    }
+    body.dark .testimonial-block {
+      background: #2b241eee;
+    }
+    body.dark .contact-form {
+      background: #2a221cee;
+    }
+    body.dark .form-group input,
+    body.dark .form-group textarea {
+      background: #2f2822;
+      border-color: #8b6b42;
+      color: #f2e5d8;
+    }
+    body.dark .submit-btn {
+      background: #b87a3a;
+    }
+    body.dark .section-title:after {
+      background: #e2b87a;
+    }
+    body.dark .step-number {
+      background: #c79a5e;
+    }
+    body.dark .btn-outline {
+      border-color: #e6c87a;
+      color: #e6c87a;
+    }
+    body.dark .btn-outline:hover {
+      background: #e6c87a;
+      color: #2a241f;
+    }
+    body.dark #services::before,
+    body.dark #process::before,
+    body.dark #gallery::before,
+    body.dark #consult::before {
+      background-color: rgba(28, 24, 20, 0.85) !important;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="./shared.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+<div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close><i class="fas fa-info-circle"></i> About</a>
+        <a href="./services.html" data-close><i class="fas fa-tools"></i> Services</a>
+        <a href="./gallery.html" data-close><i class="fas fa-images"></i> Gallery</a>
+        <a href="./blog.html" data-close><i class="fas fa-feather-alt"></i> Blog</a>
+        <a href="./contact.html" data-close><i class="fas fa-envelope"></i> Contact</a>
+        <div class="drawer-divider"></div>
+      </div>
+    </div>
+
+
+    
+
+<!-- ========== NAVBAR (first block - exact) ========== -->
+
+    
+
+    <!-- Drawer overlay & drawer panel -->
+    
+    
+
+      
+  
+
+<!-- ========== MAIN CONTENT SECTIONS (from second block, with hero session) ========== -->
+<!-- Hero Section with dedicated antique clock image -->
+<section id="hero" class="hero">
+  <div class="container hero-content">
+    <h1>Antique Clock Restoration &<br> Repair Service</h1>
+    <p>Preserving the heartbeat of history — expert craftsmanship for antique grandfather, wall, mantel & cuckoo clocks. Reviving timeless elegance since 1987.</p>
+    <a href="#consult" class="btn">Request a Free Estimate →</a>
+    <a href="#process" class="btn btn-outline" style="margin-left: 12px;">How We Work</a>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section-title">Specialized Restoration Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-hourglass-half"></i>
+        <h3>Grandfather Clocks</h3>
+        <p>Complete movement overhaul, weight & chain repair, cabinet refinishing, and authentic moon dial calibration.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-cogs"></i>
+        <h3>Mechanical Movements</h3>
+        <p>Rebuilding vintage movements, gear cutting, bushing installation, and mainspring replacement with period accuracy.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-tree"></i>
+        <h3>Cuckoo & Wall Clocks</h3>
+        <p>Bellows repair, chain & pendulum adjustment, hand-carved details, and 19th-century Black Forest clock expertise.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-clock"></i>
+        <h3>Pocket & Mantel Clocks</h3>
+        <p>Delicate escapement work, enamel dial restoration, crystal replacement, and precision regulation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section id="process" class="section" style="background: rgba(251, 245, 234, 0.75);">
+  <div class="container">
+    <h2 class="section-title">The Art of Revival: Our Process</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <i class="fas fa-search"></i>
+        <h3>Diagnosis & Consultation</h3>
+        <p>We carefully assess the movement, case, and provenance, identifying issues with non-invasive techniques.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <i class="fas fa-tools"></i>
+        <h3>Precision Disassembly</h3>
+        <p>Full disassembly, ultrasonic cleaning, and detailed inspection of each gear, pivot, and jewel.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <i class="fas fa-microchip"></i>
+        <h3>Repair & Restoration</h3>
+        <p>Hand-filing worn teeth, re-bushing plates, replacing springs, and restoring original finishes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">04</div>
+        <i class="fas fa-chart-line"></i>
+        <h3>Calibration & Testing</h3>
+        <p>Regulating timekeeping over 7+ days, oiling with vintage-spec lubricants, and sound testing the chime.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 44px;">
+      <span class="badge"><i class="fas fa-clock"></i> 3–6 weeks turnaround • Certified horologists</span>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="section">
+  <div class="container">
+    <h2 class="section-title">Before & After: Masterpieces Reborn</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="./image/Antique clock mechanism before restoration.jpg" alt="Antique clock mechanism before restoration">
+        <p><i class="fas fa-history"></i> 1880s Vienna Regulator – movement fully rebuilt</p>
+      </div>
+      <div class="gallery-card">
+        <img src="./image/Antique mantel clock restored.jpg" alt="Antique mantel clock restored">
+        <p><i class="fas fa-gem"></i> French Marble Mantel – case revival & gilding</p>
+      </div>
+      <div class="gallery-card">
+        <img src="./image/Vintage wall clock after restoration.jpg" alt="Vintage wall clock after restoration">
+        <p><i class="fas fa-chime"></i> 1920s Sessions Wall Clock – chime restoration</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 32px;">
+      <p class="badge" style="background:#e2cfb0;">✨ Over 2,500 antique clocks restored — each piece tells a story</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials & Contact Section -->
+<section id="consult" class="section" style="background: rgba(254, 246, 234, 0.8);">
+  <div class="container">
+    <h2 class="section-title">Trusted by Collectors & Museums</h2>
+    <div class="hybrid-grid">
+      <div class="testimonial-block">
+        <i class="fas fa-quote-left" style="font-size: 2rem; color: #c9a554; margin-bottom: 8px; display: inline-block;"></i>
+        <div class="testimonial-card">
+          <p>"Heritage Clocks restored my 1840s English longcase to perfection. The movement now keeps time within seconds per week. Absolute artistry."</p>
+          <p class="client-name">— Eleanor Whitmore, Antique Collector</p>
+        </div>
+        <div class="testimonial-card">
+          <p>"Professional, transparent, and incredibly knowledgeable. They revived my family heirloom cuckoo clock that hadn't worked in decades. Pure magic!"</p>
+          <p class="client-name">— David Chen, Horology Enthusiast</p>
+        </div>
+        <div class="testimonial-card">
+          <p>"They even sourced authentic period hands for my 1903 Ansonia. The attention to historical detail is unmatched. Highly recommend."</p>
+          <p class="client-name">— Margaret S., Museum Curator</p>
+        </div>
+        <div style="margin-top: 20px;">
+          <i class="fas fa-star" style="color: #f5b042;"></i><i class="fas fa-star" style="color: #f5b042;"></i><i class="fas fa-star" style="color: #f5b042;"></i><i class="fas fa-star" style="color: #f5b042;"></i><i class="fas fa-star" style="color: #f5b042;"></i>
+          <span style="margin-left: 8px;">4.97 · 180+ reviews</span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3 style="font-family: 'Playfair Display'; margin-bottom: 18px; font-size: 1.7rem;">Request a Restoration Quote</h3>
+        <p style="margin-bottom: 20px;">Tell us about your antique clock and we’ll get back within 24h.</p>
+        <form id="quickForm" action="#" method="post">
+          <div class="form-group">
+            <input type="text" placeholder="Full name *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email address *" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Clock type / era (e.g., Grandfather, 1890)">
+          </div>
+          <div class="form-group">
+            <textarea rows="3" placeholder="Describe issues or restoration goals..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Inquiry <i class="fas fa-paper-plane"></i></button>
+          <p style="font-size: 0.75rem; margin-top: 12px; text-align: center;">We respect your privacy. No obligation quote.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STANDALONE FOOTER (third block - exact) ========== -->
+
+
+<!-- ========== COMBINED JAVASCRIPT (first block, second block form handler, drawer enhancements) ========== -->
+
+
+
+    
+    
+
+
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo"><i class="fas fa-hourglass-half"></i><span class="footer-logo-name">Antique Clock</span></div>
+            <p>Preserving heirloom timepieces with masterful care & icon-driven precision.</p>
+            <div class="footer-tagline">"Restoring timeless craftsmanship"</div>
+            <div class="social-row">
+              <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Full Restoration</a></li>
+              <li><a href="#">Clock Repair</a></li>
+              <li><a href="./services.html">Diagnostics</a></li>
+              <li><a href="#">Case Refinishing</a></li>
+              <li><a href="#">Parts Sourcing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY 10012</span></div>
+            <div class="contact-row"><i class="fas fa-phone-alt"></i><span>+1 (555) 782-3562</span></div>
+            <div class="contact-row"><i class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2026 Antique Clock Service — Iconic Craftsmanship</div>
+          <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./nav.js"></script>
+</body>
+</html>

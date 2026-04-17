@@ -1,0 +1,1389 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nexus Collective | Leadership & Creator Economy</title>
+  
+  <!-- fonts & icons (combined from all components) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  
+  
+  
+  <!-- ========== STYLE BLOCK 2: NEXUS COLLECTIVE (full original, unmodified) ========== -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #C6A43B;
+      --gold-deep: #B48C2C;
+      --gold-light: #E1C87D;
+      --charcoal: #111111;
+      --ink: #1A1A1A;
+      --paper: #FEFAF0;
+      --cream-bg: #FCF8F0;
+      --border-soft: rgba(198, 164, 59, 0.22);
+      --shadow-sm: 0 12px 28px -8px rgba(0, 0, 0, 0.05);
+      --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--cream);
+      color: var(--brown-dark);
+      line-height: 1.5;
+      overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      --ink: #ece3d8;
+      --paper: #1a1612;
+      --cream-bg: #221e18;
+      --border-soft: rgba(184, 124, 79, 0.22);
+      background-color: #1a1612 !important;
+    }
+
+    body.dark section {
+      background-color: transparent !important;
+    }
+
+    body.dark .about-section, 
+    body.dark .leader-card,
+    body.dark .testi-card,
+    body.dark .stats-badge,
+    body.dark .expertise-card,
+    body.dark .visual-graphic,
+    body.dark .network-ring-inner,
+    body.dark .clock-card,
+    body.dark [style*="background:#fff"],
+    body.dark [style*="background: white"] {
+      background-color: #221e18 !important;
+      color: #ece3d8 !important;
+      border-color: var(--border-soft) !important;
+    }
+
+    body.dark .leader-name,
+    body.dark .team-card h3,
+    body.dark h1, body.dark h2, body.dark h3, body.dark h4,
+    body.dark .section-title, body.dark .team-title, 
+    body.dark .step-num, body.dark .clock-card h3,
+    body.dark [style*="color:#1A1A1A"] {
+      color: #dc9e62 !important;
+    }
+
+    body.dark p,
+    body.dark blockquote,
+    body.dark .testi-text,
+    body.dark .leader-bio,
+    body.dark .team-bio,
+    body.dark .expertise-card p,
+    body.dark .step-text p,
+    body.dark .clock-card p,
+    body.dark [style*="color: #666"],
+    body.dark [style*="color:#666"],
+    body.dark [style*="color:#555"],
+    body.dark [style*="color: #5a5a5a"],
+    body.dark [style*="color: #4b4b4b"],
+    body.dark [style*="color: #2c2c2c"],
+    body.dark [style*="color: #4a4a4a"],
+    body.dark [style*="color:#8b7a4b"] {
+      color: #c5b8a8 !important;
+    }
+    
+    body.dark .network-ring {
+      background: conic-gradient(from 0deg, var(--gold-deep), #8b6e23, #b48c2c, var(--gold)) !important;
+    }
+
+    /* typography */
+    h1, h2, h3, .serif-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .label-text {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    /* Hero with background image from the provided leadership theme */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(105deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.45) 100%), 
+                  url('./image/Meet\ The\ Leadership\ Team.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 30% 40%, rgba(198,164,59,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 880px;
+      padding: 2rem;
+      backdrop-filter: blur(1px);
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 400;
+      background: rgba(0,0,0,0.3);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      font-weight: 600;
+      color: white;
+      line-height: 1.12;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: rgba(255,255,240,0.92);
+      font-weight: 400;
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      font-family: 'Manrope', sans-serif;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    .hero-divider::before, .hero-divider::after {
+      content: '';
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    }
+    .hero-divider span {
+      color: var(--gold-light);
+      font-size: 1.2rem;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,220,0.7);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 38px;
+      background: linear-gradient(to bottom, var(--gold-light), transparent);
+      animation: scrollPulse 1.8s infinite;
+    }
+    @keyframes scrollPulse {
+      0% { opacity: 0.3; transform: scaleY(0.8); }
+      100% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* section base */
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .section-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    /* leadership team cards grid (Updated to match screenshot) */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .team-card {
+      text-align: center;
+      transition: var(--transition);
+      background: transparent; /* match image background */
+      border: none;
+      box-shadow: none;
+    }
+    .team-img-wrapper {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      padding: 6px;
+      border: 3px solid #00A896; /* Teal border from image */
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .team-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+    .team-social-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 0.8rem;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 2;
+    }
+    .team-img-wrapper:hover .team-social-overlay {
+      opacity: 1;
+    }
+    .team-img-wrapper:hover img {
+      filter: brightness(0.6);
+    }
+    .social-icn {
+      width: 32px;
+      height: 32px;
+      background: #00A896;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+    .team-card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.4rem;
+    }
+    .team-title {
+      color: #00A896;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: capitalize;
+      margin-bottom: 1rem;
+    }
+    .team-bio {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1100px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+
+    /* mission section */
+    .mission-section {
+      background: var(--cream-bg);
+    }
+    .mission-grid {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .mission-text {
+      flex: 1.5;
+    }
+    .mission-text p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #2c2c2c;
+      margin-top: 1rem;
+    }
+    .stats-badge {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      border: 1px solid var(--border-soft);
+      text-align: center;
+    }
+    .stats-number {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+    }
+
+    /* expertise / services grid */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1px;
+      background: rgba(198,164,59,0.2);
+      border: 1px solid rgba(198,164,59,0.2);
+      margin-top: 2rem;
+    }
+    .expertise-card {
+      background: white;
+      padding: 2.2rem 1.8rem;
+      transition: background 0.25s;
+    }
+    .expertise-card:hover {
+      background: #FEFBF5;
+    }
+    .expertise-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .expertise-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .expertise-card p {
+      color: #4b4b4b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* process / how we work */
+    .process-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .step-item {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: rgba(198,164,59,0.12);
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--gold-deep);
+      font-size: 1.2rem;
+    }
+    .step-text h4 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    .visual-graphic {
+      background: radial-gradient(circle at 30% 20%, #FFF7E8, #FDF3E2);
+      border-radius: 64px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--border-soft);
+    }
+    .network-ring {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      background: conic-gradient(from 0deg, var(--gold-light), #d6b04b, #f3e2b5, var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: rotateSlow 20s linear infinite;
+    }
+    .network-ring-inner {
+      width: 180px;
+      height: 180px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold-deep);
+      font-weight: 600;
+    }
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* testimonials */
+    .testimonials-section {
+      background: #FEFAF2;
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .testi-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      border: 1px solid var(--border-soft);
+    }
+    .testi-card blockquote {
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #2e2e2e;
+      margin: 1rem 0;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .author-icon {
+      width: 42px;
+      height: 42px;
+      background: #F2E9DA;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--gold);
+    }
+
+    .cta-band {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .cta-btn {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      padding: 0.9rem 2.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      transition: 0.25s;
+      text-decoration: none;
+      margin-top: 1.5rem;
+    }
+    .cta-btn:hover {
+      background: var(--gold);
+      color: white;
+      border-color: var(--gold);
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      border-top: 1px solid rgba(198,164,59,0.2);
+      background: #FDFAF3;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 780px) {
+      .process-layout { grid-template-columns: 1fr; }
+      .visual-graphic { order: -1; }
+      .hero { background-attachment: scroll; }
+    }
+  </style>
+
+  <!-- ========== STYLE BLOCK 3: ANTIQUE CLOCK FOOTER (fully preserved) ========== -->
+  <style>
+    /* ---------- ROOT VARIABLES (matching original design) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #c47b3e;
+      --gold-light: #dc9e62;
+      --gold-dark: #9b5e2c;
+      --cream: #faf6ef;
+      --cream-mid: #f5ede2;
+      --brown-dark: #2c2418;
+      --brown-mid: #5a4a36;
+      --brown-light: #a08060;
+      --border: rgba(139, 101, 57, 0.18);
+    }
+
+    /* optional dark mode variables (if you ever toggle, but footer adapts) */
+    body.dark {
+      --cream: #1a1612;
+      --cream-mid: #221e18;
+      --brown-dark: #ece3d8;
+      --brown-mid: #c5b8a8;
+      --border: rgba(184, 124, 79, 0.22);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--brown-dark);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* container utility (same as original) */
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    /* ---------- FOOTER STYLES (exactly as original, no modifications) ---------- */
+    footer {
+      background: var(--cream-mid);
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-brand .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo i {
+      font-size: 1.45rem;
+      color: var(--gold);
+    }
+
+    .footer-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.38rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-brand p {
+      font-size: .85rem;
+      color: var(--brown-mid);
+      line-height: 1.72;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: .5rem;
+      margin-top: 1.1rem;
+    }
+
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .82rem;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: all .18s;
+    }
+
+    .social-btn:hover {
+      background: rgba(184, 124, 79, .12);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .footer-col h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 1.15rem;
+      color: var(--brown-dark);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: .58rem;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      font-size: .85rem;
+      color: var(--brown-mid);
+      transition: color .18s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      margin-bottom: .6rem;
+      font-size: 0.85rem;
+      color: var(--brown-mid);
+    }
+
+    .contact-row i {
+      color: var(--gold);
+      width: 15px;
+      margin-top: 2px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.3rem 0;
+      font-size: .81rem;
+      color: var(--brown-mid);
+      flex-wrap: wrap;
+    }
+
+    .legal {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .legal a {
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .legal a:hover {
+      color: var(--gold);
+    }
+
+    /* Responsive (same as original footer breakpoints) */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.8rem;
+      }
+      .footer-brand .footer-logo {
+        justify-content: center;
+      }
+      .contact-row {
+        justify-content: center;
+      }
+      .social-row {
+        justify-content: center;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.7rem;
+        text-align: center;
+      }
+      .legal {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.9rem;
+      }
+      .footer-col h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+      }
+      .contact-row {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-col ul li a {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* extra small devices */
+    @media (max-width: 375px) {
+      .footer-col ul li a {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* ensure no overflow */
+    img, svg, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+
+  <!-- ========== ADDED BACKGROUND IMAGE FOR MISSION SECTION (only addition, no existing lines changed) ========== -->
+  <style>
+    /* ADDITION ONLY: background image for .mission-section (subtle luxurious texture) */
+    .mission-section {
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: soft-light;
+      background-repeat: no-repeat;
+    }
+  </style>
+
+  <!-- ========== NEW SECTION: CREATOR ECOSYSTEM FOR CLOCK (added without modifying any existing line) ========== -->
+  <style>
+    /* Additional styles for the new clock creator ecosystem section */
+    .clock-ecosystem {
+      background: linear-gradient(125deg, #FDF8F0 0%, #FBF5E8 100%);
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .clock-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .clock-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(198,164,59,0.2);
+      box-shadow: 0 10px 25px -12px rgba(0,0,0,0.05);
+    }
+    .clock-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .clock-icon {
+      font-size: 2.4rem;
+      color: var(--gold-deep);
+      margin-bottom: 1rem;
+    }
+    .clock-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .clock-card p {
+      font-size: 0.9rem;
+      color: #5a5a5a;
+      line-height: 1.6;
+    }
+    .ecosystem-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2.5rem 0 1rem;
+      flex-wrap: wrap;
+    }
+    .stat-clock {
+      text-align: center;
+      background: rgba(198,164,59,0.08);
+      padding: 1rem 1.6rem;
+      border-radius: 60px;
+    }
+    .stat-clock .number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-deep);
+      font-family: 'Playfair Display', serif;
+    }
+    .stat-clock .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  </style>
+  <link rel="stylesheet" href="./shared.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+<div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close><i class="fas fa-info-circle"></i> About</a>
+        <a href="./services.html" data-close><i class="fas fa-tools"></i> Services</a>
+        <a href="./gallery.html" data-close><i class="fas fa-images"></i> Gallery</a>
+        <a href="./blog.html" data-close><i class="fas fa-feather-alt"></i> Blog</a>
+        <a href="./contact.html" data-close><i class="fas fa-envelope"></i> Contact</a>
+        <div class="drawer-divider"></div>
+        
+        <div class="drawer-divider"></div>
+        <!-- Enhanced controls injected via JS -->
+      </div>
+      
+    </div>
+
+      <script src="./nav.js"></script>
+
+<!-- ========== COMPONENT 1: ANTIQUE CLOCK NAVBAR (exact, unmodified) ========== -->
+
+
+    <!-- Drawer overlay & drawer panel -->
+    
+<!-- HERO SECTION — with leadership team background image + updated paragraph style -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ THE VANGUARD OF CREATOR ECONOMY ✦</span>
+    <h1 class="hero-title">Meet The <em>Leadership Team</em></h1>
+    <div class="hero-divider"><span>⚡</span></div>
+    <p class="hero-subtitle">The tech innovators and marketing experts powering the creator economy — building the infrastructure where creators thrive, brands connect, and communities scale.</p>
+  </div>
+  <div class="scroll-hint">DIScover our vision</div>
+</section>
+
+<!-- LEADERSHIP TEAM GRID — Representing the high-fidelity team style from screenshot -->
+<section style="background: #FFFFFF;">
+  <div class="section-inner">
+    <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="font-size: 3.5rem; font-weight: 800; font-family: 'Inter', sans-serif;">Meet The Leadership Team</h2>
+      <p style="max-width: 680px; margin: 15px auto 0; color: #666; font-size: 1.1rem; font-family: 'Inter', sans-serif;">The tech innovators and marketing experts powering the creator economy.</p>
+    </div>
+    <div class="team-grid">
+      <!-- David Sterling -->
+      <div class="team-card reveal">
+        <div class="team-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format" alt="David Sterling">
+          <div class="team-social-overlay">
+            <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <h3>David Sterling</h3>
+        <div class="team-title">CEO & Founder</div>
+        <p class="team-bio">Former ad-tech executive dedicated to decentralizing media.</p>
+      </div>
+      <!-- Sarah Jenkins -->
+      <div class="team-card reveal">
+        <div class="team-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format" alt="Sarah Jenkins">
+          <div class="team-social-overlay">
+            <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <h3>Sarah Jenkins</h3>
+        <div class="team-title">Chief Operating Officer</div>
+        <p class="team-bio">Scaling platform operations and ensuring seamless brand integration.</p>
+      </div>
+      <!-- Marcus Chen -->
+      <div class="team-card reveal">
+        <div class="team-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format" alt="Marcus Chen">
+          <div class="team-social-overlay">
+            <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <h3>Marcus Chen</h3>
+        <div class="team-title">Chief Technology Officer</div>
+        <p class="team-bio">Architecting the matching algorithms and secure payment gateways.</p>
+      </div>
+      <!-- Elena Rodriguez -->
+      <div class="team-card reveal">
+        <div class="team-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format" alt="Elena Rodriguez">
+          <div class="team-social-overlay">
+            <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <h3>Elena Rodriguez</h3>
+        <div class="team-title">Head of Creator Success</div>
+        <p class="team-bio">Empowering our talent network to reach their highest potential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION SECTION (updated story/paragraph) -->
+<section class="mission-section">
+  <div class="section-inner">
+    <div class="mission-grid">
+      <div class="mission-text reveal">
+        <span class="label-text">OUR PHILOSOPHY</span>
+        <h2 class="section-title">Redefining <em>Creator Independence</em></h2>
+        <p>We are on a mission to build the most equitable ecosystem where creators own their audience, brands discover authentic voices, and technology works invisibly to amplify human creativity. Our leadership team brings decades of experience from adtech, content distribution, and high-growth platforms.</p>
+        <p>By combining advanced matchmaking algorithms with ethical monetization tools, we’ve unlocked over $240M in creator revenue since inception. This is not just a platform — it’s a movement to reshape the creative middle class.</p>
+      </div>
+      <div class="stats-badge reveal">
+        <div class="stats-number">240M+</div>
+        <div style="font-weight: 500;">Creator earnings generated</div>
+        <hr style="margin: 1rem 0; border-color: var(--border-soft);">
+        <div class="stats-number">14k+</div>
+        <div style="font-weight: 500;">Active brand partnerships</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE EXPERTISE (replacing services) -->
+<section style="background: white;">
+  <div class="section-inner">
+    <div class="reveal" style="text-align: center;">
+      <span class="label-text">Our Capabilities</span>
+      <h2 class="section-title">What Powers <em>The Ecosystem</em></h2>
+      <p style="max-width: 600px; margin: 0 auto 2rem auto;">From AI-driven discovery to seamless settlements — technology built for the creator economy.</p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal"><div class="expertise-icon">⚡</div><h3>Intelligent Matching</h3><p>Proprietary algorithms pair creators with aligned brands using deep behavioral data and authentic affinity scoring.</p></div>
+      <div class="expertise-card reveal"><div class="expertise-icon">🔒</div><h3>Secure Payment Gateway</h3><p>Multi-currency, fast settlements, escrow protection — built on blockchain-grade security.</p></div>
+      <div class="expertise-card reveal"><div class="expertise-icon">📈</div><h3>Analytics & Attribution</h3><p>Real-time performance dashboards, ROI attribution, and creator-level insights.</p></div>
+      <div class="expertise-card reveal"><div class="expertise-icon">🌐</div><h3>Brand Integration Suite</h3><p>Seamless campaign management from brief to payment, with dedicated brand success managers.</p></div>
+  </div>
+</section>
+
+<!-- PROCESS / HOW WE BUILD -->
+<section style="background: #FDFAF4;">
+  <div class="section-inner">
+    <div class="process-layout">
+      <div class="reveal">
+        <span class="label-text">Methodology</span>
+        <h2 class="section-title">How We <em>Scale Impact</em></h2>
+        <div style="margin-top: 1.8rem;">
+          <div class="step-item"><div class="step-num">01</div><div class="step-text"><h4>Discovery & Onboarding</h4><p>Creators and brands go through a tailored onboarding process — understanding goals, niche, and audience fit.</p></div></div>
+          <div class="step-item"><div class="step-num">02</div><div class="step-text"><h4>Algorithmic Matching</h4><p>Our AI engine proposes campaign matches based on engagement, values, and creative style, maximizing authentic resonance.</p></div></div>
+          <div class="step-item"><div class="step-num">03</div><div class="step-text"><h4>Collaboration & Fulfillment</h4><p>End-to-end campaign management, content review, and integrated payment milestones.</p></div></div>
+          <div class="step-item"><div class="step-num">04</div><div class="step-text"><h4>Growth Analytics</h4><p>Post-campaign insights, performance reports, and optimization recommendations for long-term partnerships.</p></div></div>
+        </div>
+      </div>
+      <div class="visual-graphic reveal">
+        <div class="network-ring"><div class="network-ring-inner">Creator<br>Ecosystem</div></div>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #8b7a4b;">Intelligent network connecting innovation & authenticity</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="background:#FEFAF2; padding:80px 20px; font-family:'Inter', sans-serif;">
+  <div style="max-width:1200px; margin:auto;">
+
+    <!-- HEADER -->
+    <div style="text-align:center; margin-bottom:50px;">
+      <span style="color:#C6A43B; font-size:12px; letter-spacing:3px; text-transform:uppercase;">
+        Our Excellence
+      </span>
+      <h2 style="font-family:'Playfair Display', serif; font-size:2.8rem; margin-top:10px; color:#1A1A1A;">
+        Why Choose <em style="color:#C6A43B;">Our Craftsmanship</em>
+      </h2>
+      <p style="max-width:600px; margin:15px auto 0; color:#555; font-size:15px;">
+        We blend heritage techniques with modern precision to deliver exceptional restoration and timeless value.
+      </p>
+    </div>
+
+    <!-- GRID -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:25px;">
+
+      <!-- CARD 1 -->
+      <div style="background:#fff; padding:30px; border-radius:24px; border:1px solid rgba(198,164,59,0.2); text-align:center; transition:0.3s;">
+        <div style="font-size:30px; color:#C6A43B; margin-bottom:15px;">⏳</div>
+        <h3 style="font-family:'Playfair Display', serif; font-size:1.4rem; margin-bottom:10px;">Heritage Expertise</h3>
+        <p style="color:#666; font-size:14px; line-height:1.6;">
+          Decades of experience restoring antique clocks with authentic craftsmanship and precision.
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div style="background:#fff; padding:30px; border-radius:24px; border:1px solid rgba(198,164,59,0.2); text-align:center;">
+        <div style="font-size:30px; color:#C6A43B; margin-bottom:15px;">⚙️</div>
+        <h3 style="font-family:'Playfair Display', serif; font-size:1.4rem; margin-bottom:10px;">Precision Repair</h3>
+        <p style="color:#666; font-size:14px; line-height:1.6;">
+          Advanced tools and techniques ensure every mechanism works flawlessly.
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div style="background:#fff; padding:30px; border-radius:24px; border:1px solid rgba(198,164,59,0.2); text-align:center;">
+        <div style="font-size:30px; color:#C6A43B; margin-bottom:15px;">🔒</div>
+        <h3 style="font-family:'Playfair Display', serif; font-size:1.4rem; margin-bottom:10px;">Trusted Service</h3>
+        <p style="color:#666; font-size:14px; line-height:1.6;">
+          Your valuable timepieces are handled with utmost care and security.
+        </p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div style="background:#fff; padding:30px; border-radius:24px; border:1px solid rgba(198,164,59,0.2); text-align:center;">
+        <div style="font-size:30px; color:#C6A43B; margin-bottom:15px;">🌍</div>
+        <h3 style="font-family:'Playfair Display', serif; font-size:1.4rem; margin-bottom:10px;">Global Clients</h3>
+        <p style="color:#666; font-size:14px; line-height:1.6;">
+          Serving collectors and enthusiasts worldwide with premium restoration services.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center; margin-top:60px;">
+      <a href="#" style="display:inline-block; padding:14px 30px; border:1.5px solid #C6A43B; color:#B48C2C; text-decoration:none; letter-spacing:2px; font-size:13px; text-transform:uppercase; transition:0.3s;">
+        Explore Our Services →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== NEW SECTION: CREATOR ECOSYSTEM FOR CLOCK ARTISANS ========== -->
+<section class="clock-ecosystem">
+  <div class="section-inner">
+    <div class="reveal" style="text-align: center;">
+      <span class="label-text">HOROLOGY MEETS CREATOR ECONOMY</span>
+      <h2 class="section-title"><em>Clock Creator</em> Ecosystem</h2>
+      <p style="max-width: 680px; margin: 0 auto 1.5rem auto; color: #4a4a4a;">Empowering master watchmakers, antique restorers, and clock designers with tools, community, and fair commerce.</p>
+    </div>
+    <div class="clock-grid">
+      <div class="clock-card reveal">
+        <div class="clock-icon"><i class="fas fa-cogs"></i></div>
+        <h3>Maker Studio</h3>
+        <p>Portfolio hosting, project showcases, and direct commissioning for bespoke clock creations.</p>
+      </div>
+      <div class="clock-card reveal">
+        <div class="clock-icon"><i class="fas fa-chalkboard-user"></i></div>
+        <h3>Masterclass Academy</h3>
+        <p>Skill‑sharing workshops from restoration techniques to modern escapement design.</p>
+      </div>
+      <div class="clock-card reveal">
+        <div class="clock-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Parts & Tool Marketplace</h3>
+        <p>Ethically sourced movements, vintage components, and specialized tools for clockmakers.</p>
+      </div>
+      <div class="clock-card reveal">
+        <div class="clock-icon"><i class="fas fa-globe"></i></div>
+        <h3>Collector Hub</h3>
+        <p>Direct connection between creators and connoisseurs — authentic timepieces with provenance.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a href="#" class="cta-btn" style="background: var(--gold); color: white; border: none;">Join the Clock Creator Network →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Nexus Collective's own footer (preserved exactly as in original) -->
+<div class="footer">
+  Nexus Collective © 2025 — Empowering the creator economy · Leadership & Innovation
+</div>
+
+<!-- ========== COMPONENT 3: ANTIQUE CLOCK FOOTER (exact, unmodified) ========== -->
+
+
+<!-- ========== ALL SCRIPTS (preserved from each component, in order, without changes) ========== -->
+
+
+<!-- Nexus Collective reveal & parallax script (preserved) -->
+<script>
+  // intersection observer for reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // subtle parallax hero background shift (smooth)
+  window.addEventListener('mousemove', (e) => {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const x = (e.clientX / window.innerWidth) * 12;
+    const y = (e.clientY / window.innerHeight) * 8;
+    hero.style.backgroundPosition = `${50 + x * 0.05}% ${45 + y * 0.05}%`;
+  });
+</script>
+
+<!-- Antique Clock Footer optional script (preserved) -->
+<script>
+  // (Optional) if you wish to test dark mode, uncomment the next line or add a toggle button.
+  // However the footer will automatically adapt if parent body has class "dark".
+  // This script is just for completeness; the footer works perfectly without it.
+  console.log('Antique Clock Footer — ready to embed. Add class "dark" to body to switch to dark theme.');
+</script>
+
+
+<!-- ========== ADDITION: BACKGROUND IMAGE FOR CLOCK ECOSYSTEM (no existing lines changed) ========== -->
+<style>
+  /* ADDITION: luxurious clockmaker workshop background for .clock-ecosystem section */
+  .clock-ecosystem {
+    background-image: linear-gradient(rgba(253, 248, 240, 0.78), rgba(251, 245, 232, 0.85)), url('https://images.unsplash.com/photo-1585614962832-eeebd69d7920?q=80&w=2070&auto=format');
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+  }
+  body.dark .clock-ecosystem {
+    background-image: linear-gradient(rgba(26, 22, 18, 0.82), rgba(34, 30, 24, 0.88)), url('https://images.unsplash.com/photo-1585614962832-eeebd69d7920?q=80&w=2070&auto=format');
+  }
+  @media (max-width: 780px) {
+    .clock-ecosystem {
+      background-attachment: scroll;
+    }
+  }
+</style>
+
+<!-- ========== ADDITION: SESSION MANAGEMENT DEMO (persistent session across page reloads) ========== -->
+<script>
+  (function initSessionDemo() {
+    // generate or retrieve session ID from sessionStorage
+    let sessionId = sessionStorage.getItem('nexus_session_id');
+    if (!sessionId) {
+      sessionId = 'SID-' + Math.random().toString(36).substring(2, 12).toUpperCase();
+      sessionStorage.setItem('nexus_session_id', sessionId);
+    }
+    const sessionStart = sessionStorage.getItem('session_start') || new Date().toLocaleTimeString();
+    if (!sessionStorage.getItem('session_start')) sessionStorage.setItem('session_start', sessionStart);
+    
+    // create floating session badge (non-intrusive)
+    const sessionBadge = document.createElement('div');
+    sessionBadge.id = 'sessionDemoBadge';
+    sessionBadge.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(198, 164, 59, 0.9);
+      backdrop-filter: blur(8px);
+      color: #1e1a14;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      padding: 8px 14px;
+      border-radius: 40px;
+      z-index: 9999;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,215,140,0.5);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: all 0.2s ease;
+      pointer-events: auto;
+      cursor: pointer;
+    `;
+    sessionBadge.innerHTML = `<i class="fas fa-clock" style="margin-right: 6px;"></i> Session: ${sessionId} <span style="font-size:0.7rem; opacity:0.7;">⚡</span>`;
+    sessionBadge.title = `Session started: ${sessionStart} | Click to renew`;
+    document.body.appendChild(sessionBadge);
+    
+    // click to renew session (simulate new session)
+    sessionBadge.addEventListener('click', () => {
+      const newSession = 'SID-' + Math.random().toString(36).substring(2, 12).toUpperCase();
+      sessionStorage.setItem('nexus_session_id', newSession);
+      sessionStorage.setItem('session_start', new Date().toLocaleTimeString());
+      sessionBadge.innerHTML = `<i class="fas fa-clock" style="margin-right: 6px;"></i> Session: ${newSession} <span style="font-size:0.7rem; opacity:0.7;">🔄</span>`;
+      sessionBadge.style.background = "#c47b3e";
+      setTimeout(() => { sessionBadge.style.background = "rgba(198, 164, 59, 0.9)"; }, 300);
+      // optional: show brief notification
+      const notif = document.createElement('div');
+      notif.textContent = '✓ Session renewed';
+      notif.style.cssText = 'position:fixed; bottom:80px; left:20px; background:#2c2418; color:#e6d5b8; padding:4px 12px; border-radius:20px; font-size:0.7rem; z-index:10000;';
+      document.body.appendChild(notif);
+      setTimeout(() => notif.remove(), 1500);
+    });
+    
+    // also log session to console for debugging
+    console.log(`[Session Demo] Active session: ${sessionId} (started at ${sessionStart})`);
+  })();
+</script>
+
+<footer><div class="container"><div class="footer-grid"><div
+            class="footer-brand"><div class="footer-logo"><i
+                class="fas fa-hourglass-half"></i><span
+                class="footer-logo-name">Antique Clock</span></div><p>Preserving
+              heirloom timepieces with masterful care & icon-driven
+              precision.</p><div
+              class="footer-tagline">"Restoring timeless craftsmanship"</div><div
+              class="social-row"><a href="#" class="social-btn"><i
+                  class="fab fa-instagram"></i></a><a href="#"
+                class="social-btn"><i class="fab fa-facebook-f"></i></a><a
+                href="#" class="social-btn"><i
+                  class="fab fa-pinterest-p"></i></a><a href="#"
+                class="social-btn"><i
+                  class="fab fa-youtube"></i></a></div></div><div
+            class="footer-col"><h4>Services</h4><ul><li><a href="#">Full
+                  Restoration</a></li><li><a href="#">Clock
+                  Repair</a></li><li><a href="./services.html">Diagnostics</a></li><li><a
+                  href="#">Case Refinishing</a></li><li><a href="#">Parts
+                  Sourcing</a></li><li><a href="#">Maintenance
+                  Plans</a></li></ul></div><div class="footer-col"><h4>Quick
+              Links</h4><ul><li><a href="./index.html">Home</a></li><li><a href="#">About
+                  Us</a></li><li><a href="./gallery.html">Gallery</a></li><li><a
+                  href="#">Blog</a></li><li><a href="./contact.html">Contact</a></li><li><a
+                  href="#">Book Repair</a></li></ul></div><div
+            class="footer-col"><h4>Contact</h4><div class="contact-row"><i
+                class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY
+                10012</span></div><div class="contact-row"><i
+                class="fas fa-phone-alt"></i><span>+1 (555)
+                782-3562</span></div><div class="contact-row"><i
+                class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div></div></div><div
+          class="footer-bottom"><div>© 2026 Antique Clock Service — Iconic
+            Craftsmanship</div><div class="legal"><a href="#">Privacy</a><a
+              href="#">Terms</a><a
+              href="#">Accessibility</a></div></div></div></footer>
+
+</body>
+</html>
+my 

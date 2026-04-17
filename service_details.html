@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Elite Horology | Precision Watch Atelier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./shared.css">
+    <style>
+      body {
+        margin: 0;
+        cursor: default;
+        background: var(--cream);
+        color: var(--brown-dark);
+        transition: background 0.4s ease, color 0.4s ease;
+      }
+
+
+
+      /* Hero Section */
+      .sd-hero {
+        position: relative;
+        padding: 15rem 2rem 10rem;
+        background: linear-gradient(to bottom, rgba(15,12,10,0.4), rgba(15,12,10,0.9)), url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+      }
+      .sd-hero-content {
+        max-width: 900px;
+        color: #fff;
+      }
+      .sd-hero-content h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(3.5rem, 7vw, 6rem);
+        margin-bottom: 2rem;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+      .sd-hero-content p {
+        font-size: 1.25rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.8;
+        margin-bottom: 3rem;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .sd-hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: rgba(196, 123, 62, 0.15);
+        border: 1px solid var(--gold);
+        border-radius: 50px;
+        color: var(--gold-light);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 2rem;
+      }
+
+      /* General Content Sections */
+      .sd-section {
+        padding: 10rem 0;
+        background: var(--section-bg);
+        color: var(--brown-dark);
+        overflow: hidden;
+        transition: background 0.4s ease;
+      }
+      .sd-section-alt {
+        padding: 10rem 0;
+        background: var(--section-bg-alt);
+        color: var(--brown-dark);
+        transition: background 0.4s ease;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .sd-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+      .sd-grid.reverse .img-side {
+        order: 2;
+      }
+      .sd-grid.reverse .text-side {
+        order: 1;
+      }
+
+      .img-side {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .img-side img {
+        width: 100%;
+        display: block;
+        transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+      }
+      .img-side:hover img {
+        transform: scale(1.05);
+      }
+
+      .text-side h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3.5rem;
+        color: var(--gold);
+        margin-bottom: 2rem;
+        line-height: 1.1;
+      }
+      .text-side p {
+        color: var(--brown-mid);
+        line-height: 1.9;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Micro Detail Boxes */
+      .micro-specs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 3rem;
+      }
+      .spec-item {
+        border-left: 2px solid var(--gold);
+        padding-left: 20px;
+      }
+      .spec-item h4 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.3rem;
+        color: var(--gold-light);
+        margin-bottom: 5px;
+      }
+      .spec-item p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        line-height: 1.5;
+        color: var(--brown-mid);
+      }
+
+      /* Features Showcase */
+      .features-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        margin-top: 5rem;
+      }
+      .feature-card {
+        padding: 3rem 2rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        text-align: center;
+        transition: all 0.4s ease;
+      }
+      .feature-card:hover {
+        background: rgba(196, 123, 62, 0.05);
+        border-color: var(--gold);
+        transform: translateY(-10px);
+      }
+      .feature-card i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+      .feature-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--brown-dark);
+      }
+      .feature-card p {
+        font-size: 0.95rem;
+        color: var(--brown-mid);
+        line-height: 1.7;
+      }
+
+      /* Floating Contact Button */
+      .float-cta {
+        margin-top: 5rem;
+        text-align: center;
+      }
+      .glow-btn {
+        display: inline-block;
+        padding: 1.2rem 3.5rem;
+        background: var(--gold);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        border-radius: 2px;
+        box-shadow: 0 0 20px rgba(196, 123, 62, 0.3);
+        transition: all 0.3s ease;
+      }
+      .glow-btn:hover {
+        background: var(--gold-dark);
+        box-shadow: 0 0 30px rgba(196, 123, 62, 0.5);
+        transform: scale(1.05);
+      }
+
+
+      [dir="rtl"] .spec-item {
+        border-left: none;
+        border-right: 2px solid var(--gold);
+        padding-left: 0;
+        padding-right: 20px;
+      }
+
+      @media(max-width: 900px) {
+        .sd-grid, .sd-grid.reverse {
+          grid-template-columns: 1fr;
+          gap: 4rem;
+        }
+        .features-row {
+          grid-template-columns: 1fr;
+        }
+        .sd-hero-content h1 {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+
+    <div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html" class="active">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close>About</a>
+        <a href="./services.html" class="active" data-close>Services</a>
+        <a href="./gallery.html" data-close>Gallery</a>
+        <a href="./blog.html" data-close>Blog</a>
+        <a href="./contact.html" data-close>Contact</a>
+        <div class="drawer-divider"></div>
+      </div>
+    </div>
+
+    <!-- Immersive Hero -->
+    <section class="sd-hero">
+      <div class="sd-hero-content">
+        <span class="sd-hero-badge">The Art of Haute Chronometry</span>
+        <h1>Mastering The <br>Mechanical Pulse</h1>
+        <p>Beyond repair, we practice horological resurrection. Our master watchmakers operate at the intersection of microscopic engineering and ancestral craft, ensuring every movement achieves the absolute peak of chronometric performance.</p>
+        <a href="#explore" class="glow-btn">Deep Dive Into The Atelier</a>
+      </div>
+    </section>
+
+    <!-- Section 1: Grand Complications -->
+    <section id="explore" class="sd-section">
+      <div class="container">
+        <div class="sd-grid">
+          <div class="img-side">
+            <img src="https://images.unsplash.com/photo-1548690184-fb3170e1762c?auto=format&fit=crop&q=80&w=1200" alt="Chronograph Caliber">
+          </div>
+          <div class="text-side">
+            <h2>The Architecture of Complications</h2>
+            <p>A grand complication watch is a living machines of immense density. Servicing these calibers requires a unique protocol: complete teardown of the split-seconds chronograph modules, perpetual calendar rockers, or minute repeater striking trains.</p>
+            <p>Every component is digitally mapped. We isolate wear on column-wheel teeth and re-tension hair-thin springs using traditional hand-tools. Each gear is hand-lubricated with up to six different viscosities of synthetic oil to ensure perfect kinetic harmony.</p>
+            <div class="micro-specs">
+              <div class="spec-item">
+                <h4>Split-Second Tuning</h4>
+                <p>Synchronization of rattrapante hands to within 1/100th of a second.</p>
+              </div>
+              <div class="spec-item">
+                <h4>Torque Optimization</h4>
+                <p>Mainspring power-reserve curve flattening for isochronal stability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Micromachining (The Darkest Section) -->
+    <section class="sd-section-alt">
+      <div class="container">
+        <div class="sd-grid reverse">
+          <div class="img-side">
+            <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&q=80&w=1200" alt="Watchmaker Lathe">
+          </div>
+          <div class="text-side">
+            <h2>Micro-Mechanical Fabrication</h2>
+            <p>When original parts no longer exist for vintage Patek Philippe or Vacheron Constantin calibers, we don’t compromise. We fabricate. Our atelier is equipped with high-precision Bergeon lathes and Schaublin milling machines.</p>
+            <p>From turning a new balance staff to cutting a custom escape wheel from raw hardened steel, our precision is measured in microns. We maintain an archive of historic metal alloys to ensure every new part matches the original weight and coefficient of expansion.</p>
+            <div class="micro-specs">
+              <div class="spec-item">
+                <h4>Bessemer-Grade Steel</h4>
+                <p>Turning components with tolerances of ±0.002mm.</p>
+              </div>
+              <div class="spec-item">
+                <h4>Arbor Polishing</h4>
+                <p>Restoring factory-spec mirror finishes to microscopic pivot points.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Fine Finishing & Anglage -->
+    <section class="sd-section">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 6rem;">
+          <h2 style="font-family:'Cormorant Garamond', serif; font-size:4rem; color:var(--gold-light);">The Finishing Atelier</h2>
+          <p style="max-width: 800px; margin: 0 auto; color:rgba(255,255,255,0.6);">A luxury watch is as much an art piece as a machine. Our finishing specialists restore the invisible beauty of the movement.</p>
+        </div>
+        
+        <div class="features-row">
+          <div class="feature-card">
+            <i class="fas fa-feather"></i>
+            <h3>Anglage</h3>
+            <p>Hand-mirror polishing of beveled edges. We restore the "angles rentrants" (internal angles) using gentian wood and diamond paste for a distortion-free shine.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-circle-notch"></i>
+            <h3>Perlage & Côtes</h3>
+            <p>Re-applying the emotional circular graining and Côtes de Genève (Geneva Stripes) to bridge plates, ensuring the light play is identical to the day it left Switzerland.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-fire-alt"></i>
+            <h3>Heat-Bluing</h3>
+            <p>Restoring the deep royal blue of oxidized steel screws and hands. Every component is fire-blued individually to achieve a uniform, luminous indigo hue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Advanced Case Restoration (New) -->
+    <section class="sd-section-alt">
+      <div class="container">
+        <div class="sd-grid">
+          <div class="img-side">
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595dd?auto=format&fit=crop&q=80&w=1200" alt="Case Restoration">
+          </div>
+          <div class="text-side">
+            <h2>Case Lapping & Geometric Preservation</h2>
+            <p>Standard polishing is destructive. It rounds off the sharp edges and thins the lugs of a precious metal case. Our atelier utilizes cold laser welding combined with precision lapping machines to restore factory-spec geometry without removing original metal volume.</p>
+            <p>We separately mask off satin-brushed planes and mirror-polished chamfers. This ensures that the distinct, crisp lines defined by the original manufacture are perfectly preserved, returning the watch to its "new-old-stock" appearance.</p>
+            <div class="micro-specs">
+              <div class="spec-item">
+                <h4>Cold Laser Fill</h4>
+                <p>Adding metal back into deep gouges at a molecular level.</p>
+              </div>
+              <div class="spec-item">
+                <h4>Facet Masking</h4>
+                <p>Maintaining clear boundaries between contrasting finishes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Dial & Lume (New) -->
+    <section class="sd-section">
+      <div class="container">
+        <div class="sd-grid reverse">
+          <div class="img-side">
+            <img src="https://images.unsplash.com/photo-1584100914445-89947dd8fc51?auto=format&fit=crop&q=80&w=1200" alt="Watch Dial Detail">
+          </div>
+          <div class="text-side">
+            <h2>Dial Preservation & Luminescent Signatures</h2>
+            <p>The dial is the face of the timepiece and the most sensitive component. We specialize in the stabilization of vintage tropical dials and the restoration of missing pad-printed signatures using authentic historic fonts and lead-free inks.</p>
+            <p>Our "Lume Lab" precisely color-matches Super-LumiNova® or non-active aged tritium substitutes to ensure the nocturnal signature of your watch matches its daytime age and provenance perfectly.</p>
+            <div class="micro-specs">
+              <div class="spec-item">
+                <h4>Pad Printing</h4>
+                <p>Restoring microscopic logotypes to factory precision.</p>
+              </div>
+              <div class="spec-item">
+                <h4>Patina Stabilization</h4>
+                <p>Protecting original finishes from further environmental degradation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Quality Control (New) -->
+    <section class="sd-section-alt" style="background: #0a0807;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 5rem;">
+          <h2 style="font-family:'Cormorant Garamond', serif; font-size:3.5rem; color:var(--gold);">The 600-Hour Protocol</h2>
+          <p style="color:rgba(255,255,255,0.6); max-width: 700px; margin: 0 auto;">No watch leaves the atelier without surviving our rigorous final assessment cycle.</p>
+        </div>
+        <div class="features-row">
+          <div class="feature-card">
+            <i class="fas fa-water"></i>
+            <h3>Pressure Certification</h3>
+            <p>Dry vacuum testing followed by wet pressure cycles up to 300m (30 ATM). We verify the hermetic seal of every crown, pusher, and sapphire seating.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-area"></i>
+            <h3>Position Mapping</h3>
+            <p>Final observation over 21 days in six simulated real-wear positions. We chart the amplitude and beat-error until it falls within CHRONOMETER specifications.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-certificate"></i>
+            <h3>Digital Passport</h3>
+            <p>You receive a comprehensive service diary, including macroscopic before/after photos and a digital timegrapher report signed by the lead artisan.</p>
+          </div>
+        </div>
+        
+        <!-- Artisan Quote -->
+        <div style="margin-top: 8rem; text-align: center; border-top: 1px solid rgba(196, 123, 62, 0.2); padding-top: 4rem;">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: var(--gold-light); max-width: 800px; margin: 0 auto;">
+            "A watchmaker doesn't just repair time; we curate inheritance. Every micron we move and every drop of oil we apply is a commitment to the next hundred years."
+          </p>
+          <div style="margin-top: 1.5rem; font-family: 'DM Sans', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #fff;">
+            — Master Watchmaker, Lead Artisan
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="sd-section-alt" style="text-align: center; border-top: 1px solid rgba(196, 123, 62, 0.2);">
+      <div class="container">
+        <h2 style="font-family:'Cormorant Garamond', serif; font-size:3rem;">Preserve Your Legacy</h2>
+        <p style="max-width: 600px; margin: 1.5rem auto 3rem; color:rgba(255,255,255,0.7);">Your horological investments deserve the world's most disciplined restorative approach. Our consultation begins with a full macroscopic diagnostic report.</p>
+        <a href="./contact.html" class="glow-btn">Inquire About An Assessment</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <i class="fas fa-hourglass-half"></i>
+              <span class="footer-logo-name">Antique Clock</span>
+            </div>
+            <p>Preserving heirloom timepieces with masterful care & icon-driven precision.</p>
+            <div class="footer-tagline">"Restoring timeless craftsmanship"</div>
+            <div class="social-row">
+              <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Full Restoration</a></li>
+              <li><a href="#">Clock Repair</a></li>
+              <li><a href="./services.html">Diagnostics</a></li>
+              <li><a href="#">Case Refinishing</a></li>
+              <li><a href="#">Parts Sourcing</a></li>
+              <li><a href="#">Maintenance Plans</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li><a href="./services.html">Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY 10012</span></div>
+            <div class="contact-row"><i class="fas fa-phone-alt"></i><span>+1 (555) 782-3562</span></div>
+            <div class="contact-row"><i class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div>
+            <div class="contact-row"><i class="fas fa-heart" style="color:var(--gold); font-size: 0.8rem; margin-right: 5px;"></i><span>Tailored Heirloom Care</span></div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2026 Antique Clock Service — Iconic Craftsmanship</div>
+          <div class="legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./nav.js"></script>
+</body>
+</html>

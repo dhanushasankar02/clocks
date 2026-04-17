@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Antique Clock | Navigation Component</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="./shared.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+  <body>
+<div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close><i class="fas fa-info-circle"></i> About</a>
+        <a href="./services.html" data-close><i class="fas fa-tools"></i> Services</a>
+        <a href="./gallery.html" data-close><i class="fas fa-images"></i> Gallery</a>
+        <a href="./blog.html" data-close><i class="fas fa-feather-alt"></i> Blog</a>
+        <a href="./contact.html" data-close><i class="fas fa-envelope"></i> Contact</a>
+        <div class="drawer-divider"></div>
+        
+        <div class="drawer-divider"></div>
+        <!-- Enhanced controls injected via JS -->
+      </div>
+      
+    </div>
+
+      <script src="./nav.js"></script>
+
+    
+
+    <!-- Drawer overlay & drawer panel -->
+
+<footer><div class="container"><div class="footer-grid"><div
+            class="footer-brand"><div class="footer-logo"><i
+                class="fas fa-hourglass-half"></i><span
+                class="footer-logo-name">Antique Clock</span></div><p>Preserving
+              heirloom timepieces with masterful care & icon-driven
+              precision.</p><div
+              class="footer-tagline">"Restoring timeless craftsmanship"</div><div
+              class="social-row"><a href="#" class="social-btn"><i
+                  class="fab fa-instagram"></i></a><a href="#"
+                class="social-btn"><i class="fab fa-facebook-f"></i></a><a
+                href="#" class="social-btn"><i
+                  class="fab fa-pinterest-p"></i></a><a href="#"
+                class="social-btn"><i
+                  class="fab fa-youtube"></i></a></div></div><div
+            class="footer-col"><h4>Services</h4><ul><li><a href="#">Full
+                  Restoration</a></li><li><a href="#">Clock
+                  Repair</a></li><li><a href="./services.html">Diagnostics</a></li><li><a
+                  href="#">Case Refinishing</a></li><li><a href="#">Parts
+                  Sourcing</a></li><li><a href="#">Maintenance
+                  Plans</a></li></ul></div><div class="footer-col"><h4>Quick
+              Links</h4><ul><li><a href="./index.html">Home</a></li><li><a href="#">About
+                  Us</a></li><li><a href="./gallery.html">Gallery</a></li><li><a
+                  href="#">Blog</a></li><li><a href="./contact.html">Contact</a></li><li><a
+                  href="#">Book Repair</a></li></ul></div><div
+            class="footer-col"><h4>Contact</h4><div class="contact-row"><i
+                class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY
+                10012</span></div><div class="contact-row"><i
+                class="fas fa-phone-alt"></i><span>+1 (555)
+                782-3562</span></div><div class="contact-row"><i
+                class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div></div></div><div
+          class="footer-bottom"><div>© 2026 Antique Clock Service — Iconic
+            Craftsmanship</div><div class="legal"><a href="#">Privacy</a><a
+              href="#">Terms</a><a
+              href="#">Accessibility</a></div></div></div></footer>
+
+</body>
+</html>

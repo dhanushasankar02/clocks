@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Login | Clock Repair Workshop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ----- BODY WITH RICH BACKGROUND IMAGE (CLOCK REPAIR ATMOSPHERE) ----- */
+        body {
+            /* Fallback warm dark tone */
+            background-color: #1e1915;
+            /* High-quality background image: antique clockmaker's bench with tools and gears */
+            background-image: linear-gradient(135deg, rgba(10, 8, 6, 0.75), rgba(25, 18, 12, 0.85)), 
+                              url('https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            
+            font-family: 'Segoe UI', system-ui, 'Inter', -apple-system, 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        /* elegant card: clean white with golden accents */
+        .card {
+            max-width: 440px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 32px;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.3s;
+            backdrop-filter: blur(0px);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 32px 48px -15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* header with dark & gold harmony */
+        .header {
+            background: #1c1a16;
+            padding: 1.4rem 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .header h2 {
+            color: #f9f3e2;
+            font-weight: 600;
+            font-size: 1.55rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header h2 i {
+            color: #d4af37;
+            font-size: 1.5rem;
+        }
+
+        .header p {
+            font-size: 0.7rem;
+            color: #c0b28a;
+            margin-top: 5px;
+            letter-spacing: 0.3px;
+        }
+
+        /* form body spacing */
+        .form-body {
+            padding: 1.8rem 1.8rem 2rem;
+        }
+
+        .input-field {
+            margin-bottom: 1.2rem;
+        }
+
+        .input-field label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #4a3b28;
+            margin-bottom: 0.45rem;
+        }
+
+        .input-field label i {
+            color: #d4af37;
+            width: 18px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 11px 16px;
+            border: 1px solid #e2dbcf;
+            border-radius: 48px;
+            font-size: 0.85rem;
+            background-color: #fefcf8;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .input-field input:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            background-color: #ffffff;
+        }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper input {
+            padding-right: 40px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            color: #9c8b76;
+            cursor: pointer;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-password:hover {
+            color: #d4af37;
+        }
+
+        /* login specific row (remember + forgot) */
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.2rem 0 1.5rem 0;
+        }
+
+        .checkbox-remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-remember input {
+            width: 16px;
+            height: 16px;
+            accent-color: #d4af37;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .checkbox-remember label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: #3c2e1f;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #b47c2e;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(180, 124, 46, 0.4);
+        }
+
+        .forgot-link:hover {
+            color: #9b6a24;
+            border-bottom-color: #9b6a24;
+        }
+
+        .btn {
+            width: 100%;
+            background: #1c1a16;
+            border: none;
+            border-radius: 48px;
+            padding: 12px;
+            color: #faf3e0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn i {
+            color: #d4af37;
+        }
+
+        .btn:hover {
+            background: #2b2722;
+            transform: translateY(-2px);
+        }
+
+        .register-link {
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 1.3rem;
+            color: #6b5a45;
+        }
+
+        .register-link a {
+            color: #b8860b;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            font-size: 0.65rem;
+            color: #c45c2c;
+            margin-top: 5px;
+            margin-left: 14px;
+            font-weight: 500;
+        }
+
+        .toast {
+            background: #2b2a26;
+            color: #f7e9ce;
+            padding: 10px 16px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-left: 4px solid #d4af37;
+            font-weight: 500;
+            animation: fadeSlide 0.25s ease;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            .form-body {
+                padding: 1.4rem 1.2rem 1.8rem;
+            }
+            .btn {
+                padding: 10px;
+            }
+            .login-options {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+        .logo{
+            justify-content: center;
+        }
+
+        /* --- SOCIAL LOGIN --- */
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2dbcf;
+        }
+        .social-login a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #e2dbcf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a3b28;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .social-login a:hover {
+            background: #fdfaf5;
+            border-color: #d4af37;
+            color: #b47c2e;
+            transform: translateY(-2px);
+        }
+        .social-divider {
+            text-align: center;
+            margin-top: 1.2rem;
+            font-size: 0.65rem;
+            color: #9c8b76;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- DARK MODE REFINEMENTS --- */
+        body.dark .card {
+            background: rgba(30, 26, 22, 0.98);
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 175, 55, 0.3);
+        }
+        body.dark .input-field label { color: #f9f3e2; }
+        body.dark .input-field input { background-color: #27221d; border-color: #3e362c; color: #f9f3e2; }
+        body.dark .checkbox-remember label { color: #f9f3e2; }
+        body.dark .register-link { color: #c0b28a; }
+        body.dark .social-login { border-top-color: #3e362c; }
+        body.dark .social-login a { border-color: #3e362c; color: #c0b28a; }
+        body.dark .social-login a:hover { background: #1c1a16; }
+        body.dark .forgot-link { color: #d4af37; }
+    </style>
+  <link rel="stylesheet" href="./shared.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+
+    <div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+         
+          <div class="nav-actions show-on-mobile">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+          </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+<div class="card">
+    <div class="header">
+            <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>      
+        <p>sign in · restore precision & heritage</p>
+    </div>
+    <div class="form-body">
+        <div id="msgArea"></div>
+        <form id="loginForm" novalidate>
+            <div class="input-field">
+                <label><i class="fas fa-envelope"></i> Email address</label>
+                <input type="email" id="loginEmail" placeholder="artisan@clockrestore.com" autocomplete="email">
+                <div class="error" id="emailError"></div>
+            </div>
+            <div class="input-field">
+                <label><i class="fas fa-lock"></i> Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="loginPassword" placeholder="••••••" autocomplete="current-password">
+                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                </div>
+                <div class="error" id="pwdError"></div>
+            </div>
+            <div class="login-options">
+                <div class="checkbox-remember">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Keep me signed in</label>
+                </div>
+                <a href="./index.html" class="forgot-link">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn"><i class="fas fa-right-to-bracket"></i> Sign in</button>
+            
+            <div class="social-divider">or sign in with</div>
+            <div class="social-login">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Google"><i class="fab fa-google"></i></a>
+                <a href="#" title="Apple"><i class="fab fa-apple"></i></a>
+            </div>
+
+            <div class="register-link">No account yet? <a href="register.html">Join the guild</a></div>
+        </form>
+    </div>
+</div>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="./nav.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const togglePassword = document.getElementById("togglePassword");
+        const loginPassword = document.getElementById("loginPassword");
+        
+        if (togglePassword && loginPassword) {
+            togglePassword.addEventListener("click", function () {
+                const type = loginPassword.getAttribute("type") === "password" ? "text" : "password";
+                loginPassword.setAttribute("type", type);
+                this.classList.toggle("fa-eye");
+                this.classList.toggle("fa-eye-slash");
+            });
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Antique Clock | Timeless Icons of Craftsmanship</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      
+    <link rel="stylesheet" href="./shared.css">
+    <style>
+      /* ── HERO: antique clock mechanism background ── */
+      .hero {
+        position: relative;
+        background-image: url('./image/Global\ Client\ Concierge.jpg');
+        background-size: cover;
+        background-position: 30% 45%;
+        background-repeat: no-repeat;
+        padding: 5rem 0 4rem;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(125deg, rgba(18, 12, 8, 0.88) 0%, rgba(44, 28, 18, 0.75) 45%, rgba(126, 72, 30, 0.6) 100%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      body.dark .hero::before {
+        background: linear-gradient(125deg, rgba(8, 6, 4, 0.92) 0%, rgba(30, 20, 12, 0.85) 50%, rgba(88, 52, 24, 0.7) 100%);
+      }
+
+      .hero .container,
+      .hero .hero-grid {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        font-size: .7rem;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: #e9bc8b;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .hero-badge span {
+        width: 32px;
+        height: 1px;
+        background: #e9bc8b;
+      }
+
+      .hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2.5rem, 4.8vw, 4rem);
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        color: #fef1e0;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: #e9bc8b;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero p {
+        font-size: .94rem;
+        line-height: 1.7;
+        color: rgba(255, 245, 230, 0.9);
+        max-width: 450px;
+        margin-bottom: 2rem;
+      }
+
+      .icon-cluster {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .icon-cluster .cluster-item {
+        background: rgba(30, 20, 12, 0.65);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(220, 158, 98, 0.5);
+        border-radius: 60px;
+        padding: .45rem 1rem .45rem .9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: .6rem;
+        font-size: .85rem;
+        font-weight: 500;
+        color: #f5e7d9;
+      }
+
+      .icon-cluster i {
+        font-size: 1rem;
+        color: var(--gold-light);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1.8rem;
+      }
+
+      .stat-badge {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stat-number {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: #e9bc8b;
+      }
+
+      .stat-badge span:last-child {
+        color: rgba(255, 245, 230, 0.85);
+        font-size: .85rem;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: .9rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0 1rem;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        padding: .75rem 1.8rem;
+        border-radius: 40px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all .2s;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .btn-outline {
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        color: #fef1e0;
+        border: 1px solid rgba(220, 158, 98, 0.7);
+        padding: .75rem 1.8rem;
+        border-radius: 40px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all .2s;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold-light);
+        color: #ffefcf;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      /* creative icon wave section */
+      .creative-wave {
+        padding: 3rem 0;
+        background: var(--cream-mid);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .creative-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.8rem;
+        text-align: center;
+      }
+
+      .creative-card {
+        background: var(--card-bg);
+        border-radius: 24px;
+        padding: 1.8rem 1rem;
+        transition: all .2s;
+        border: 1px solid var(--border);
+      }
+
+      .creative-card i {
+        font-size: 2.2rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .creative-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: .4rem;
+      }
+
+      .creative-card p {
+        font-size: .8rem;
+        color: var(--brown-mid);
+      }
+
+      /* artisan process icon section (SESSION 3) - clock movement background */
+      .artisan-section {
+        padding: 5rem 0;
+        background: linear-gradient(rgba(250, 246, 239, 0.92), rgba(250, 246, 239, 0.92)), url('./image/home4.webp') center/cover;
+        background-attachment: fixed;
+      }
+
+      body.dark .artisan-section {
+        background: linear-gradient(rgba(26, 22, 18, 0.94), rgba(26, 22, 18, 0.94)), url('https://images.unsplash.com/photo-1594535182308-8ffefbb661e1?q=80&w=2070&auto=format') center/cover;
+      }
+
+      .artisan-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+      }
+
+      .artisan-header .section-tag {
+        justify-content: center;
+      }
+
+      .artisan-header h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+      }
+
+      .process-icon-flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
+
+      .flow-step {
+        background: var(--section-bg-alt);
+        border-radius: 28px;
+        padding: 1.6rem;
+        text-align: center;
+        border: 1px solid var(--border);
+        transition: all .25s;
+      }
+
+      .flow-step:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold-light);
+      }
+
+      .step-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1rem;
+        background: rgba(184, 124, 79, .12);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--gold);
+      }
+
+      .flow-step h3 {
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+      }
+
+      .flow-step p {
+        font-size: .85rem;
+        color: var(--brown-mid);
+      }
+
+      /* gallery mosaic */
+      .gallery-mosaic {
+        padding: 4rem 0;
+        background: var(--cream-mid);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .mosaic-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .mosaic-item {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid var(--border);
+        transition: transform .2s;
+      }
+
+      .mosaic-item:hover {
+        transform: scale(1.02);
+      }
+
+      .mosaic-icon {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .mosaic-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: .4rem;
+      }
+
+      .mosaic-item p {
+        font-size: .82rem;
+        color: var(--brown-mid);
+        margin-bottom: 1rem;
+      }
+
+      .mosaic-tag {
+        display: inline-block;
+        background: rgba(184, 124, 79, .1);
+        padding: .2rem .7rem;
+        border-radius: 40px;
+        font-size: .7rem;
+        font-weight: 500;
+        color: var(--gold);
+      }
+
+      /* stats & testimonial */
+      .stats {
+        background: var(--cream);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 4rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stats-img-bg {
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        transform: translateY(-50%);
+        width: 300px;
+        opacity: 0.05;
+        pointer-events: none;
+      }
+
+      body.dark .stats-img-bg {
+        opacity: 0.1;
+      }
+
+      .stats-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .stat-num {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.4rem;
+        font-weight: 600;
+        color: var(--gold);
+      }
+
+      .testimonial-simple {
+        padding: 4rem 0;
+      }
+
+      .testimonial-flex {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .t-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 1.6rem;
+        border: 1px solid var(--border);
+      }
+
+      .t-card i {
+        color: var(--gold);
+        font-size: .9rem;
+        margin-bottom: .8rem;
+        opacity: .7;
+      }
+
+      .t-card p {
+        font-style: italic;
+        font-size: .85rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .avatar-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(184, 124, 79, .15);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: .7rem;
+        color: var(--gold);
+      }
+
+      /* CTA creative */
+      .cta-creative {
+        padding: 4rem 0;
+      }
+
+      .cta-creative .cta-box {
+        background: linear-gradient(125deg, #2b1f13, #4f351f);
+        border-radius: 28px;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .cta-creative h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.9rem;
+        color: #f5e8d8;
+      }
+
+      .cta-creative p {
+        color: rgba(245, 232, 216, .8);
+        max-width: 400px;
+      }
+
+      .btn-cta {
+        background: var(--gold);
+        border: none;
+        padding: .8rem 2rem;
+        border-radius: 40px;
+        color: #fff;
+        font-weight: 500;
+        transition: all .2s;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+      }
+
+      .btn-cta:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+      }
+
+      @media(max-width:1024px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .creative-grid,
+        .process-icon-flow {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mosaic-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .testimonial-flex {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .stats-inner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media(max-width:640px) {
+        .container {
+          padding: 0 1.2rem;
+        }
+
+        .creative-grid,
+        .process-icon-flow,
+        .mosaic-grid,
+        .testimonial-flex {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .cta-creative .cta-box {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-stats {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+
+    <!-- SESSION 3: artisan-section with clock mechanism background & bright heading -->
+    <style>
+      .artisan-section {
+        position: relative;
+        background-image: url('./image/Hand-Wound\ Caliber.jpg');
+        background-size: cover;
+        background-position: center 20%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+      }
+      .artisan-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: brightness(0.96);
+        pointer-events: none;
+        z-index: 0;
+        border-radius: inherit;
+      }
+      body.dark .artisan-section::before {
+        background: rgba(0, 0, 0, 0.7);
+      }
+      .artisan-section .container {
+        position: relative;
+        z-index: 2;
+      }
+      .artisan-section .artisan-header h2 {
+        color: #e9bc8b !important;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        font-weight: 700;
+      }
+      .artisan-section .artisan-header .section-tag span,
+      .artisan-section .artisan-header .section-tag {
+        color: #ffdaa6;
+      }
+      .artisan-section .flow-step {
+        background: rgba(250, 246, 239, 0.92);
+        backdrop-filter: blur(2px);
+      }
+      body.dark .artisan-section .flow-step {
+        background: rgba(34, 30, 24, 0.92);
+      }
+    </style>
+    <!-- SESSION 6: testimonial-simple with antique clock dial background + bright heading -->
+    <style>
+      .testimonial-simple {
+        position: relative;
+        background-image: url('./image/watch.jpg');
+        background-size: cover;
+        background-position: center 30%;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+      }
+      .testimonial-simple::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: brightness(0.92);
+        pointer-events: none;
+        z-index: 0;
+      }
+      body.dark .testimonial-simple::before {
+        background: rgba(0, 0, 0, 0.75);
+      }
+      .testimonial-simple .container {
+        position: relative;
+        z-index: 2;
+      }
+      /* bright heading for testimonial section (matching gold/bright theme) */
+      .testimonial-simple .artisan-header h2 {
+        color: #e9bc8b !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      }
+      .testimonial-simple .artisan-header .section-tag,
+      .testimonial-simple .artisan-header .section-tag span {
+        color: #ffdaa6;
+      }
+      .testimonial-simple .artisan-header p {
+        color: rgba(255, 245, 230, 0.9);
+      }
+      /* testimonial cards remain readable with semi-transparent background */
+      .testimonial-simple .t-card {
+        background: rgba(250, 246, 239, 0.92);
+        backdrop-filter: blur(2px);
+        border-color: rgba(220, 158, 98, 0.4);
+      }
+      body.dark .testimonial-simple .t-card {
+        background: rgba(34, 30, 24, 0.92);
+      }
+      .testimonial-simple .t-card p,
+      .testimonial-simple .t-card strong,
+      .testimonial-simple .t-card div {
+        color: var(--brown-dark);
+      }
+      body.dark .testimonial-simple .t-card p,
+      body.dark .testimonial-simple .t-card strong {
+        color: #ece3d8;
+      }
+    </style>
+
+
+    
+  <link rel="stylesheet" href="./shared.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+  <body>
+<div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn active"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html" class="active">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" class="active" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" class="active" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close>About</a>
+        <a href="./services.html" data-close>Services</a>
+        <a href="./gallery.html" data-close>Gallery</a>
+        <a href="./blog.html" data-close>Blog</a>
+        <a href="./contact.html" data-close>Contact</a>
+        <div class="drawer-divider"></div>
+        <!-- Enhanced controls injected via JS -->
+      </div>
+    </div>
+
+
+      
+    
+  
+    <!-- 1. Hero Section (Centered Master Style) -->
+<section class="new-master-hero" style="position: relative; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('./image/imag5.jpg') center center/cover no-repeat; padding: 10rem 2rem; text-align: center; border-bottom: 3px solid #D4AF37; margin: 0; z-index: 5;">
+  <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
+    <div style="display:inline-block; background:rgba(212,175,55,0.2); color:#D4AF37; padding:0.4rem 1.2rem; border-radius:30px; font-weight:700; font-size:0.8rem; margin-bottom:1.5rem; letter-spacing:2px; border:1px solid rgba(212,175,55,0.4);">HOROLOGY LEGACY</div>
+    <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; background: linear-gradient(135deg, #FFE484, #FFB347); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1.5rem; text-shadow: 0 4px 15px rgba(0,0,0,0.4); letter-spacing: -0.02em; line-height:1.1;">Echoes of Eternity</h1>
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 1.35rem; color: #FFF3D1; font-weight: 500; max-width: 750px; margin: 0 auto 2.5rem auto; line-height:1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Master horologists reviving heirloom clocks with traditional techniques and icon-driven precision. Each restoration breathes life into history.</p>
+    <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+      <a href="./services.html" style="background: #D4AF37; color: #1e1a14; padding: 1rem 2.8rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">Restore a Clock <i class="fas fa-arrow-right"></i></a>
+      <a href="./gallery.html" style="background: rgba(255,255,240,0.1); backdrop-filter: blur(12px); border: 2px solid rgba(212,175,55,0.6); color: #FFFAF0; padding: 1rem 2.8rem; border-radius: 50px; font-weight: 600; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px;">Explore Masterworks <i class="fas fa-images"></i></a>
+    </div>
+    <div style="margin-top:4rem; display:flex; justify-content:center; gap:3rem; color:rgba(255,250,235,0.7); font-size:0.9rem;">
+      <span><i class="fas fa-gear" style="color:#D4AF37; margin-right:8px;"></i> Mechanical Soul</span>
+      <span><i class="fas fa-hourglass-start" style="color:#D4AF37; margin-right:8px;"></i> Timeless Legacy</span>
+      <span><i class="fas fa-gem" style="color:#D4AF37; margin-right:8px;"></i> Heirloom Quality</span>
+    </div>
+  </div>
+</section>
+
+    <!-- creative icon features wave -->
+    <div class="creative-wave" id="section-features"><div class="container"><div
+          class="creative-grid"><div class="creative-card"><i
+              class="fas fa-tachometer-alt"></i><h3>Precision
+              Timing</h3><p>Digital & mechanical calibration</p></div><div
+            class="creative-card"><i
+              class="fas fa-hand-holding-heart"></i><h3>Heirloom
+              Care</h3><p>Gentle, ethical restoration</p></div><div
+            class="creative-card"><i
+              class="fas fa-charging-station"></i><h3>Modern
+              Diagnostics</h3><p>Laser alignment + classic craft</p></div><div
+            class="creative-card"><i
+              class="fas fa-globe-americas"></i><h3>Worldwide
+              Shipping</h3><p>Insured & tracked</p></div></div></div></div>
+
+    <!-- artisan process icon section (SESSION 3 with clock movement background) -->
+    <section class="artisan-section" id="section-services">
+      <div class="container">
+        <div class="artisan-header">
+          <div class="section-tag" style="display:flex;gap:.5rem;justify-content:center;"><span></span> THE CRAFT <span></span></div>
+          <h2>Where Icons Meet<br>Horology Excellence</h2>
+          <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Clock Mechanism" style="width:120px; height:120px; border-radius:50%; margin:1.5rem auto 0; border:4px solid var(--gold); object-fit:cover; display:block; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <p class="section-sub" style="margin:1rem auto 0;">Each restoration step is guided by timeless symbols of mastery.</p>
+        </div>
+        <div class="process-icon-flow">
+          <div class="flow-step"><div class="step-icon"><i
+                class="fas fa-search"></i></div><h3>Inspect</h3><p>Iconic
+              assessment of gears, jewels & case</p></div>
+          <div class="flow-step"><div class="step-icon"><i
+                class="fas fa-screwdriver-wrench"></i></div><h3>Disassemble</h3><p>Hand-drawn
+              mapping & part catalog</p></div>
+          <div class="flow-step"><div class="step-icon"><i
+                class="fas fa-brush"></i></div><h3>Revive</h3><p>Ultrasonic
+              cleaning & pivot polishing</p></div>
+          <div class="flow-step"><div class="step-icon"><i class="fa-brands fa-searchengin"></i></div><h3>Regulate</h3><p>6-axis
+              timing & beat adjustment</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- gallery mosaic icon showcase -->
+    <div class="gallery-mosaic" id="section-gallery">
+      <div class="container">
+        <div class="artisan-header"><div class="section-tag"
+            style="justify-content:center;"><span></span> ICONIC
+            RESTORATIONS</div><h2>Masterworks Gallery</h2><p>Each piece tells a
+            story — icons of craftsmanship revived.</p></div>
+        <div class="mosaic-grid">
+          <div class="mosaic-item"><div class="mosaic-icon"><i
+                class="fas fa-crown"></i></div><h3>Regency Bracket</h3><p>Circa
+              1810, full fusee movement overhaul.</p><span class="mosaic-tag">🌿
+              Restored 2025</span></div>
+          <div class="mosaic-item"><div class="mosaic-icon"><i
+                class="fas fa-moon"></i></div><h3>Lunar
+              Grandfather</h3><p>Moonphase complication & chime barrel
+              rebuilt.</p><span class="mosaic-tag">⭐ Heirloom</span></div>
+          <div class="mosaic-item"><div class="mosaic-icon"><i
+                class="fas fa-bell"></i></div><h3>Vienna
+              Regulator</h3><p>Weight-driven movement, case veneering.</p><span
+              class="mosaic-tag">🎵 Chime restored</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- testimonial (SESSION 6 with antique clock dial background) -->
+    <div class="testimonial-simple" id="section-testimonials"><div class="container"><div
+          class="artisan-header"><div class="section-tag"
+            style="justify-content:center;"><span></span> VOICES OF
+            TIME</div><h2>What Collectors Say</h2><p class="section-sub" style="margin:0 auto;">Authentic stories from passionate collectors</p></div><div
+          class="testimonial-flex"><div class="t-card"><i
+              class="fas fa-quote-left"></i><p>"The icon-driven process gave me total confidence. My 1920s mantel clock ticks perfectly."</p><div><div
+                class="avatar-icon" style="display:inline-flex;"><i
+                  class="fas fa-user"></i></div> <strong>Elena
+                R.</strong></div></div><div class="t-card"><i
+              class="fas fa-quote-left"></i><p>"Masterful restoration — they even recreated a missing gear using traditional techniques."</p><div><div
+                class="avatar-icon"><i class="fas fa-user-check"></i></div>
+              <strong>Thomas K.</strong></div></div><div class="t-card"><i
+              class="fas fa-quote-left"></i><p>"Shipping was seamless and the communication via icons made tracking easy."</p><div><div
+                class="avatar-icon"><i class="fas fa-star"></i></div> <strong>M.
+                Chen</strong></div></div></div></div></div>
+
+    <!-- CTA creative -->
+    <section class="cta-creative" id="section-contact"><div class="container"><div
+          class="cta-box"><div><h2>Ready to Restore Your Heirloom?</h2><p>Book a
+              free consultation — icon-based diagnostics & transparent
+              restoration plan.</p></div><button class="btn-cta">Schedule Now <i
+              class="fas fa-arrow-right"></i></button></div></div></section>
+
+    <!-- footer unchanged -->
+  
+    <footer><div class="container"><div class="footer-grid"><div
+            class="footer-brand"><div class="footer-logo"><i
+                class="fas fa-hourglass-half"></i><span
+                class="footer-logo-name">Antique Clock</span></div><p>Preserving
+              heirloom timepieces with masterful care & icon-driven
+              precision.</p><div
+              class="footer-tagline">"Restoring timeless craftsmanship"</div><div
+              class="social-row"><a href="#" class="social-btn"><i
+                  class="fab fa-instagram"></i></a><a href="#"
+                class="social-btn"><i class="fab fa-facebook-f"></i></a><a
+                href="#" class="social-btn"><i
+                  class="fab fa-pinterest-p"></i></a><a href="#"
+                class="social-btn"><i
+                  class="fab fa-youtube"></i></a></div></div><div
+            class="footer-col"><h4>Services</h4><ul><li><a href="#">Full
+                  Restoration</a></li><li><a href="#">Clock
+                  Repair</a></li><li><a href="./services.html">Diagnostics</a></li><li><a
+                  href="#">Case Refinishing</a></li><li><a href="#">Parts
+                  Sourcing</a></li><li><a href="#">Maintenance
+                  Plans</a></li></ul></div><div class="footer-col"><h4>Quick
+              Links</h4><ul><li><a href="./index.html">Home</a></li><li><a href="./about.html">About Us</a></li><li><a href="./gallery.html">Gallery</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./services.html">Services</a></li></ul></div><div
+            class="footer-col"><h4>Contact</h4><div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY 10012</span></div><div class="contact-row"><i class="fas fa-phone-alt"></i><span>+1 (555) 782-3562</span></div><div class="contact-row"><i class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div><div class="contact-row"><i class="fas fa-heart" style="color:var(--gold); font-size: 0.8rem; margin-right: 5px;"></i><span>Tailored Heirloom Care</span></div></div></div><div
+          class="footer-bottom"><div>© 2026 Antique Clock Service — Iconic
+            Craftsmanship</div><div class="legal"><a href="#">Privacy</a><a
+              href="#">Terms</a><a
+              href="#">Accessibility</a></div></div></div></footer>
+
+    <script src="./nav.js"></script>
+</body>
+</html>

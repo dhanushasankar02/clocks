@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Antique Clock Footer Component</title>
+  <!-- Google Fonts & Font Awesome (same as original) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- ROOT VARIABLES (matching original design) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #c47b3e;
+      --gold-light: #dc9e62;
+      --gold-dark: #9b5e2c;
+      --cream: #faf6ef;
+      --cream-mid: #f5ede2;
+      --brown-dark: #2c2418;
+      --brown-mid: #5a4a36;
+      --brown-light: #a08060;
+      --border: rgba(139, 101, 57, 0.18);
+    }
+
+    /* optional dark mode variables (if you ever toggle, but footer adapts) */
+    body.dark {
+      --cream: #1a1612;
+      --cream-mid: #221e18;
+      --brown-dark: #ece3d8;
+      --brown-mid: #c5b8a8;
+      --border: rgba(184, 124, 79, 0.22);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--brown-dark);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* container utility (same as original) */
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    /* ---------- FOOTER STYLES (exactly as original, no modifications) ---------- */
+    footer {
+      background: var(--cream-mid);
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-brand .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo i {
+      font-size: 1.45rem;
+      color: var(--gold);
+    }
+
+    .footer-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.38rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-brand p {
+      font-size: .85rem;
+      color: var(--brown-mid);
+      line-height: 1.72;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: .5rem;
+      margin-top: 1.1rem;
+    }
+
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .82rem;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: all .18s;
+    }
+
+    .social-btn:hover {
+      background: rgba(184, 124, 79, .12);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .footer-col h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 1.15rem;
+      color: var(--brown-dark);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: .58rem;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      font-size: .85rem;
+      color: var(--brown-mid);
+      transition: color .18s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      margin-bottom: .6rem;
+      font-size: 0.85rem;
+      color: var(--brown-mid);
+    }
+
+    .contact-row i {
+      color: var(--gold);
+      width: 15px;
+      margin-top: 2px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.3rem 0;
+      font-size: .81rem;
+      color: var(--brown-mid);
+      flex-wrap: wrap;
+    }
+
+    .legal {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .legal a {
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .legal a:hover {
+      color: var(--gold);
+    }
+
+    /* Responsive (same as original footer breakpoints) */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.8rem;
+      }
+      .footer-brand .footer-logo {
+        justify-content: center;
+      }
+      .contact-row {
+        justify-content: center;
+      }
+      .social-row {
+        justify-content: center;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.7rem;
+        text-align: center;
+      }
+      .legal {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.9rem;
+      }
+      .footer-col h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+      }
+      .contact-row {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-col ul li a {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* extra small devices */
+    @media (max-width: 375px) {
+      .footer-col ul li a {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* ensure no overflow */
+    img, svg, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <link rel="stylesheet" href="./shared.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+<div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+          </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close><i class="fas fa-info-circle"></i> About</a>
+        <a href="./services.html" data-close><i class="fas fa-tools"></i> Services</a>
+        <a href="./gallery.html" data-close><i class="fas fa-images"></i> Gallery</a>
+        <a href="./blog.html" data-close><i class="fas fa-feather-alt"></i> Blog</a>
+        <a href="./contact.html" data-close><i class="fas fa-envelope"></i> Contact</a>
+        <div class="drawer-divider"></div>
+        
+        <div class="drawer-divider"></div>
+        <!-- Enhanced controls injected via JS -->
+      </div>
+      
+    </div>
+
+      <script src="./nav.js"></script>
+  <!-- standalone footer only - exactly as original design, fully functional and responsive -->
+  
+  <!-- optional: small inline script to simulate dark mode class if needed (not required, but allows body.dark to work if you ever add a toggle) -->
+  <script>
+    // (Optional) if you wish to test dark mode, uncomment the next line or add a toggle button.
+    // However the footer will automatically adapt if parent body has class "dark".
+    // This script is just for completeness; the footer works perfectly without it.
+    console.log('Antique Clock Footer — ready to embed. Add class "dark" to body to switch to dark theme.');
+  </script>
+
+<footer><div class="container"><div class="footer-grid"><div
+            class="footer-brand"><div class="footer-logo"><i
+                class="fas fa-hourglass-half"></i><span
+                class="footer-logo-name">Antique Clock</span></div><p>Preserving
+              heirloom timepieces with masterful care & icon-driven
+              precision.</p><div
+              class="footer-tagline">"Restoring timeless craftsmanship"</div><div
+              class="social-row"><a href="#" class="social-btn"><i
+                  class="fab fa-instagram"></i></a><a href="#"
+                class="social-btn"><i class="fab fa-facebook-f"></i></a><a
+                href="#" class="social-btn"><i
+                  class="fab fa-pinterest-p"></i></a><a href="#"
+                class="social-btn"><i
+                  class="fab fa-youtube"></i></a></div></div><div
+            class="footer-col"><h4>Services</h4><ul><li><a href="#">Full
+                  Restoration</a></li><li><a href="#">Clock
+                  Repair</a></li><li><a href="./services.html">Diagnostics</a></li><li><a
+                  href="#">Case Refinishing</a></li><li><a href="#">Parts
+                  Sourcing</a></li><li><a href="#">Maintenance
+                  Plans</a></li></ul></div><div class="footer-col"><h4>Quick
+              Links</h4><ul><li><a href="./index.html">Home</a></li><li><a href="#">About
+                  Us</a></li><li><a href="./gallery.html">Gallery</a></li><li><a
+                  href="#">Blog</a></li><li><a href="./contact.html">Contact</a></li><li><a
+                  href="#">Book Repair</a></li></ul></div><div
+            class="footer-col"><h4>Contact</h4><div class="contact-row"><i
+                class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY
+                10012</span></div><div class="contact-row"><i
+                class="fas fa-phone-alt"></i><span>+1 (555)
+                782-3562</span></div><div class="contact-row"><i
+                class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div></div></div><div
+          class="footer-bottom"><div>© 2026 Antique Clock Service — Iconic
+            Craftsmanship</div><div class="legal"><a href="#">Privacy</a><a
+              href="#">Terms</a><a
+              href="#">Accessibility</a></div></div></div></footer>
+
+</body>
+</html>
