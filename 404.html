@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Antique Clock | 404 Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./shared.css">
+    <style>
+      /* 404 Specific Styles */
+      body {
+        padding-top: 0 !important;
+        margin: 0;
+      }
+      .error-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(rgba(26, 22, 18, 0.8), rgba(26, 22, 18, 0.85)), url('https://images.unsplash.com/photo-1501163268664-3fdf329d019f?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      .error-content {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        padding: 4rem 3rem;
+        border-radius: 16px;
+        max-width: 600px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      }
+      .error-content h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 6rem;
+        color: var(--gold-light);
+        margin-bottom: 0.5rem;
+        line-height: 1;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      }
+      .error-content h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.2rem;
+        color: #fcefdc;
+        margin-bottom: 1rem;
+      }
+      .error-content p {
+        font-size: 1.1rem;
+        color: rgba(255, 245, 230, 0.8);
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+      }
+      .home-btn {
+        display: inline-block;
+        background: var(--gold);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.9rem 2.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: background 0.3s, transform 0.2s;
+      }
+      .home-btn:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+      }
+    </style>
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+
+    <!-- Navbar Wrapper -->
+    <div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+          </div>
+          </div>
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 404 Section -->
+    <section class="error-section">
+      <div class="error-content">
+        <h1>404</h1>
+        <h2>Time Stood Still</h2>
+        <p>The page you're searching for seems to be lost to history. Let's wind the gears back and return safely to the atelier.</p>
+        <a href="./index.html" class="home-btn">Return Home</a>
+      </div>
+    </section>
+
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="./index.html" data-close><i class="fas fa-home"></i> Home</a>
+        <a href="./about.html" data-close><i class="fas fa-info-circle"></i> About</a>
+        <a href="./services.html" data-close><i class="fas fa-tools"></i> Services</a>
+        <a href="./gallery.html" data-close><i class="fas fa-images"></i> Gallery</a>
+        <a href="./blog.html" data-close><i class="fas fa-feather-alt"></i> Blog</a>
+        <a href="./contact.html" data-close><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+    </div>
+
+    <script src="./nav.js"></script>
+</body>
+</html>

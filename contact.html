@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Antique Clock | Restoration & Repair — Contact</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./shared.css">
+  <style>
+    /* New Contact Concept Styles */
+    .contact-hero {
+      background: linear-gradient(rgba(18,12,8,0.8), rgba(18,12,8,0.9)), url('./image/Global\ Client\ Concierge.jpg') center/cover no-repeat;
+      padding: 8rem 2rem 5rem;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+    .contact-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      color: #fcefdc;
+      margin-bottom: 1rem;
+    }
+    .contact-hero p {
+      font-size: 1.1rem;
+      color: var(--brown-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .portal-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .portal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-radius: 8px;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .portal-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .portal-card i {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .portal-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .portal-card p {
+      color: var(--brown-mid);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .portal-link {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+    .portal-text1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .portal-text1 i {
+      transform: translateY(1px);
+    }
+    
+    .concierge-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .c-form-wrapper {
+      padding: 5rem 10%;
+    }
+    .c-form-wrapper h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--gold-dark);
+    }
+    body.dark .c-form-wrapper h2 { color: var(--gold); }
+    .c-form-wrapper p { margin-bottom: 2rem; color: var(--brown-mid); }
+    .c-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .c-form input, .c-form textarea, .c-form select {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--brown-dark);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .c-form input:focus, .c-form textarea:focus, .c-form select:focus {
+      border-color: var(--gold);
+    }
+    body.dark .c-form input, body.dark .c-form textarea, body.dark .c-form select { color: #fcefdc; }
+    .c-form button {
+      background: var(--gold);
+      color: #fff;
+      padding: 1.2rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+    }
+    .c-form button:hover { background: var(--gold-dark); }
+    
+    .c-info-wrapper {
+      background: #1a1510;
+      padding: 5rem 10%;
+      color: #fcefdc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .c-info-wrapper h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--gold); }
+    .info-list { list-style: none; padding: 0; }
+    .info-list li { margin-bottom: 1.5rem; display: flex; gap: 15px; }
+    .info-list i { font-size: 1.5rem; color: var(--gold); margin-top: 5px; }
+    .info-list h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .info-list p { font-size: 0.9rem; color: rgba(255,245,230,0.7); }
+    
+    @media(max-width: 992px) {
+      .concierge-split { grid-template-columns: 1fr; }
+      .portal-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 768px) {
+      .portal-grid { grid-template-columns: 1fr; }
+      .c-form-wrapper, .c-info-wrapper { padding: 4rem 5%; }
+    }
+  </style>
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+
+<div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li class="active"><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer overlay & drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close>About</a>
+        <a href="./services.html" data-close>Services</a>
+        <a href="./gallery.html" data-close>Gallery</a>
+        <a href="./blog.html" data-close>Blog</a>
+        <a href="./contact.html" class="active" data-close>Contact</a>
+        <div class="drawer-divider"></div>
+        <!-- Enhanced controls injected via JS -->
+      </div>
+    </div>
+
+  <main>
+    <!-- New Hero Concept -->
+    <div class="contact-hero">
+      <div class="container">
+        <h1>Global Client Concierge</h1>
+        <p>Whether inquiring about a bespoke complication or arranging secure transport for a luxury timepiece, our dedicated team is at your disposal.</p>
+      </div>
+    </div>
+
+    <!-- Direct Connect Portal -->
+    <section class="portal-section">
+      <div class="container">
+        <div class="portal-grid">
+          <div class="portal-card">
+            <i class="fas fa-microscope"></i>
+            <h3>Master Watchmaker</h3>
+            <p>Direct technical consultation regarding intricate calibers and restoration feasibility.</p>
+            <a href="#" class="portal-link">Schedule Video Call</a>
+          </div>
+          <div class="portal-card">
+              <i class="fa-solid fa-truck-fast"></i>           
+              <h3>Armored Transport</h3>
+            <p>Arrange fully insured, white-glove secure transport from your location to our lab.</p>
+            <a href="#" class="portal-link">Request Waybill</a>
+          </div>
+          <div class="portal-card">
+            <i class="fas fa-scroll"></i>
+            <h3>Archive Extracts</h3>
+            <p>Request documentation and original manufacturing extracts for vintage timepieces.</p>
+            <a href="#" class="portal-link">Submit Serial Number</a>
+          </div>
+          <div class="portal-card">
+            <i class="fas fa-handshake"></i>
+            <h3>Private Viewing</h3>
+            <p>Book a private consultation at one of our high-security regional watchmaking suites.</p>
+            <a href="#" class="portal-link">Check Availability</a>
+          </div>
+          <div class="portal-card">
+            <i class="fas fa-shield-virus"></i>
+            <h3>Sanitization Protocol</h3>
+            <p>Learn about our medical-grade ultrasonic cleaning for every incoming piece.</p>
+            <a href="#" class="portal-link">View Protocol</a>
+          </div>
+          <div class="portal-card">
+            <i class="fas fa-gift"></i>
+            <h3>Corporate Gifting</h3>
+            <p>Custom engraving and heirloom procurement for executive milestones.</p>
+            <a href="#" class="portal-link">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regional HQ Section (New) -->
+    <section class="portal-section" style="background: var(--cream-mid); border-top: 1px solid var(--border);">
+      <div class="container">
+        <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.2rem; text-align:center; margin-bottom: 3rem; color:var(--brown-dark);">Our Global Watchmaking Network</h2>
+        <div class="portal-grid">
+          <div class="portal-card" style="padding: 1.5rem;">
+            <h4 style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; margin-bottom: 0.5rem;">Geneva Atelier</h4>
+            <p style="font-size: 0.85rem;">Quai de l'Île, 1204 Genève, Switzerland</p>
+            <div class="icons-orange">
+              <i class="fas fa-clock"></i>
+              <p class="portal-text1" style="font-size: 0.75rem; color: var(--gold-dark); margin-top: 5px;"> 09:00 — 18:00 CET</p>
+            </div>
+          </div>
+          <div class="portal-card" style="padding: 1.5rem;">
+            <h4 style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; margin-bottom: 0.5rem;">London Suite</h4>
+            <p style="font-size: 0.85rem;">New Bond Street, London W1S 3ET, UK</p>
+            <div class="icons-orange">
+              <i class="fas fa-clock"></i>
+              <p class="portal-text1" style="font-size: 0.75rem; color: var(--gold-dark); margin-top: 5px;"> 09:00 — 18:00 CET</p>
+            </div>
+          </div>
+          <div class="portal-card" style="padding: 1.5rem;">
+            <h4 style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; margin-bottom: 0.5rem;">Tokyo Lab</h4>
+            <p style="font-size: 0.85rem;">Ginza, Chuo City, Tokyo 104-0061, Japan</p>
+            <div class="icons-orange">
+              <i class="fas fa-clock"></i>
+              <p class="portal-text1" style="font-size: 0.75rem; color: var(--gold-dark); margin-top: 5px;"> 09:00 — 18:00 CET</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Map Placeholder Section (New) -->
+    <section class="sd-section" style="padding: 0; background: #000; height: 450px; overflow: hidden; position: relative; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold);">
+      <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000" alt="Stylized World Map" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 100%;">
+        <h2 style="font-family:'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">Visit Our Master Atelier</h2>
+        <p style="font-family:'DM Sans', sans-serif; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--gold);">42 Clockmaker's Lane, Manhattan, NY</p>
+        <div style="margin-top: 2rem;">
+          <a href="https://maps.google.com" target="_blank" class="portal-link" style="border: 1px solid var(--gold); padding: 12px 25px; border-radius: 4px; background: rgba(0,0,0,0.5);">Get Precise Directions <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- White-Glove Request Split -->
+    <section class="concierge-split">
+      <div class="c-form-wrapper">
+        <h2>Initiate Service Request</h2>
+        <p>Please provide details about your timepiece to ensure we assign the appropriately certified specialist to your case.</p>
+        <form class="c-form" id="conciergeForm">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <select required>
+            <option value="" disabled selected>Select Watch Type...</option>
+            <option value="chronograph">Mechanical Chronograph</option>
+            <option value="tourbillon">Tourbillon / Grand Complication</option>
+            <option value="vintage">Vintage / Heirloom</option>
+            <option value="other">Other Timepiece</option>
+          </select>
+          <textarea rows="4" placeholder="Describe the current condition or requested service..." required></textarea>
+          <button type="submit">Submit Request Securely</button>
+        </form>
+      </div>
+      <div class="c-info-wrapper">
+        <h2>The Concierge Protocol</h2>
+        <ul class="info-list">
+          <li>
+            <i class="fas fa-shield-alt"></i>
+            <div>
+              <h4>Absolute Confidentiality</h4>
+              <p>All client communications and collection details are strictly protected under non-disclosure agreements.</p>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-camera"></i>
+            <div>
+              <h4>Macro-Diagnostic Intake</h4>
+              <p>Upon receiving your piece, we generate a high-resolution 4K video diagnostic detailing the precise kinetic state of the caliber.</p>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-globe"></i>
+            <div>
+              <h4>Global Atelier Accessibility</h4>
+              <p>While headquartered in New York, we maintain active service drop points in Geneva, London, and Tokyo for seamless international intake.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ Section (New) -->
+    <section class="portal-section">
+      <div class="container" style="max-width: 800px;">
+        <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.5rem; text-align:center; margin-bottom: 3rem; color:var(--gold-dark);">Inquiry FAQ</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+            <h4 style="font-family: 'DM Sans', sans-serif; font-size: 1rem; margin-bottom: 0.5rem;">What is the typical turnaround time for an overhaul?</h4>
+            <p style="font-size: 0.9rem; color: var(--brown-mid);">A standard overhaul typically requires 4-6 weeks, allowing for a 2-week observation phase to certify chronometric stability.</p>
+          </div>
+          <div style="border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+            <h4 style="font-family: 'DM Sans', sans-serif; font-size: 1rem; margin-bottom: 0.5rem;">Is my watch insured during transit?</h4>
+            <p style="font-size: 0.9rem; color: var(--brown-mid);">Yes. Our armored transport partners provide full replacement-value insurance for every luxury timepiece from the moment of collection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer><div class="container"><div class="footer-grid"><div
+          class="footer-brand"><div class="footer-logo"><i
+              class="fas fa-hourglass-half"></i><span
+              class="footer-logo-name">Antique Clock</span></div><p>Preserving
+            heirloom timepieces with masterful care & icon-driven
+            precision.</p><div
+            class="footer-tagline">"Restoring timeless craftsmanship"</div><div
+            class="social-row"><a href="#" class="social-btn"><i
+                class="fab fa-instagram"></i></a><a href="#"
+              class="social-btn"><i class="fab fa-facebook-f"></i></a><a
+              href="#" class="social-btn"><i
+                class="fab fa-pinterest-p"></i></a><a href="#"
+              class="social-btn"><i
+                class="fab fa-youtube"></i></a></div></div><div
+          class="footer-col"><h4>Services</h4><ul><li><a href="#">Full
+                Restoration</a></li><li><a href="#">Clock
+                Repair</a></li><li><a href="./services.html">Diagnostics</a></li><li><a
+                href="#">Case Refinishing</a></li><li><a href="#">Parts
+                Sourcing</a></li><li><a href="#">Maintenance
+                Plans</a></li></ul></div><div class="footer-col"><h4>Quick
+            Links</h4><ul><li><a href="./index.html">Home</a></li><li><a href="./about.html">About Us</a></li><li><a href="./gallery.html">Gallery</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./services.html">Services</a></li></ul></div><div
+          class="footer-col"><h4>Contact</h4><div class="contact-row"><i
+              class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY 10012</span></div><div class="contact-row"><i class="fas fa-phone-alt"></i><span>+1 (555) 782-3562</span></div><div class="contact-row"><i class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span></div><div class="contact-row"><i class="fas fa-heart" style="color:var(--gold); font-size: 0.8rem; margin-right: 5px;"></i><span>Tailored Heirloom Care</span></div></div></div><div
+        class="footer-bottom"><div>© 2026 Antique Clock Service — Iconic
+          Craftsmanship</div><div class="legal"><a href="#">Privacy</a><a
+            href="#">Terms</a><a
+            href="#">Accessibility</a></div></div></div></footer>
+
+  <script src="./nav.js"></script>
+
+  <script>
+    // Premium Form Interaction
+    document.getElementById('conciergeForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Verification complete. A master horologist will review your request and contact you securely within 24 hours.");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

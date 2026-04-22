@@ -1,0 +1,670 @@
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --gold: #c47b3e;
+        --gold-light: #dc9e62;
+        --gold-dark: #9b5e2c;
+        --cream: #faf6ef;
+        --cream-mid: #f5ede2;
+        --brown-dark: #2c2418;
+        --brown-mid: #5a4a36;
+        --brown-light: #a08060;
+        --border: rgba(139, 101, 57, 0.18);
+        --nav-h: 68px;
+        --drawer-w: 320px;
+      }
+
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background: var(--cream);
+        color: var(--brown-dark);
+        min-height: 100vh;
+        transition: background .3s, color .3s;
+        overflow-x: hidden;
+      }
+
+      body.dark {
+        --cream: #1a1612;
+        --cream-mid: #221e18;
+        --brown-dark: #ece3d8;
+        --brown-mid: #c5b8a8;
+        --border: rgba(184, 124, 79, 0.22);
+      }
+
+      .container {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        width: 100%;
+      }
+
+      /* ----- NAVBAR (logo left, nav center, actions right) ----- */
+      .nav-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 300;
+        background: var(--cream);
+        border-bottom: 1px solid var(--border);
+        transition: background .3s;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        height: var(--nav-h);
+        gap: 1.5rem;
+      }
+
+      /* Logo: left side */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: .55rem;
+        text-decoration: none;
+        flex-shrink: 0;
+        margin-right: auto;      /* push everything after it to the right */
+        order: 1;
+      }
+
+      .logo-icon {
+        font-size: 1.55rem;
+        color: var(--gold);
+      }
+
+      .logo-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.45rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Navigation links: centered */
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: .15rem;
+        list-style: none;
+        order: 2;
+        margin: 0 auto;         /* center horizontally */
+      }
+
+      .nav-links a, .nav-links .ddrop-btn {
+        background: none;
+        border: none;
+        font-family: 'DM Sans', sans-serif;
+        font-size: .875rem;
+        font-weight: 500;
+        color: var(--brown-dark);
+        text-decoration: none;
+        padding: .42rem .8rem;
+        border-radius: 7px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: .28rem;
+        transition: background .18s, color .18s;
+        white-space: nowrap;
+      }
+
+      /* Active link style */
+      .nav-links a.active,
+      .nav-links .ddrop-btn.active {
+        background: rgba(196, 123, 62, 0.12);
+        color: var(--gold);
+        font-weight: 600;
+        position: relative;
+      }
+      .nav-links a.active::after,
+      .nav-links .ddrop-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0.5rem;
+        right: 0.5rem;
+        height: 2px;
+        background: var(--gold);
+        border-radius: 2px;
+      }
+
+      .nav-links a:hover, .nav-links .ddrop-btn:hover {
+        background: rgba(184, 124, 79, .1);
+        color: var(--gold);
+      }
+
+      .ddrop-btn .chevron {
+        font-size: .62rem;
+        transition: transform .2s;
+      }
+
+      .ddrop:hover .ddrop-btn .chevron {
+        transform: rotate(180deg);
+      }
+
+      .ddrop {
+        position: relative;
+      }
+
+      .ddrop-menu {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        background: var(--cream);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        min-width: 168px;
+        padding: .4rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .2s ease;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, .09);
+        z-index: 10;
+      }
+
+      .ddrop:hover .ddrop-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .ddrop-menu a {
+        display: block;
+        border-radius: 6px;
+        font-size: .85rem;
+        padding: .48rem .9rem;
+        color: var(--brown-dark);
+        text-decoration: none;
+        transition: background .18s, color .18s;
+        white-space: nowrap;
+      }
+
+      .ddrop-menu a:hover {
+        background: rgba(184, 124, 79, .1);
+        color: var(--gold);
+      }
+
+      /* active style for dropdown items */
+      .ddrop-menu a.active {
+        background: rgba(196, 123, 62, 0.12);
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      /* Actions group: now on the right side */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: .35rem;
+        flex-shrink: 0;
+        order: 3;
+        margin-left: auto;      /* push to far right */
+      }
+
+      .icon-btn {
+        background: none;
+        border: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: var(--brown-dark);
+        transition: background .18s, color .18s;
+        flex-shrink: 0;
+      }
+
+      .icon-btn:hover {
+        background: rgba(184, 124, 79, .12);
+        color: var(--gold);
+      }
+
+      .btn-book {
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        padding: .46rem 1.1rem;
+        border-radius: 8px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: .85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background .2s, transform .15s;
+        white-space: nowrap;
+      }
+
+      .btn-book:hover {
+        background: var(--gold-dark);
+        transform: translateY(-1px);
+      }
+
+      .user-ddrop {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .user-ddrop-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 152px;
+        background: var(--cream);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: .4rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, .1);
+        z-index: 600;
+      }
+
+      .user-ddrop-menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .user-ddrop-menu a {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        padding: .55rem .9rem;
+        border-radius: 7px;
+        text-decoration: none;
+        font-family: 'DM Sans', sans-serif;
+        font-size: .87rem;
+        font-weight: 500;
+        color: var(--brown-dark);
+        transition: background .18s, color .18s;
+        white-space: nowrap;
+      }
+
+      .user-ddrop-menu a i {
+        width: 14px;
+        text-align: center;
+        color: var(--gold);
+        font-size: .82rem;
+      }
+
+      .user-ddrop-menu a:hover {
+        background: rgba(184, 124, 79, .1);
+        color: var(--gold);
+      }
+
+      .user-ddrop-divider {
+        height: 1px;
+        background: var(--border);
+        margin: .3rem .6rem;
+      }
+
+      .mob-actions {
+        display: none;
+        align-items: center;
+        gap: .3rem;
+        order: 4;
+        margin-left: auto;
+      }
+
+      .hamburger {
+        background: none;
+        border: 1px solid var(--border);
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: var(--brown-dark);
+        transition: background .18s, color .18s, border-color .18s;
+      }
+
+      .hamburger:hover {
+        background: rgba(184, 124, 79, .12);
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+
+      /* ----- DRAWER & OVERLAY (fully functional) ----- */
+      .drawer-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        z-index: 400;
+        visibility: hidden;
+        transition: background .3s, visibility .3s;
+      }
+
+      .drawer-overlay.open {
+        background: rgba(0, 0, 0, .45);
+        visibility: visible;
+      }
+
+      .drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: var(--drawer-w);
+        max-width: 92vw;
+        height: 100%;
+        background: var(--cream);
+        border-left: 1px solid var(--border);
+        z-index: 500;
+        transform: translateX(100%);
+        transition: transform .32s cubic-bezier(.4, 0, .2, 1);
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .drawer.open {
+        transform: translateX(0);
+      }
+
+      .drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 1.4rem;
+        border-bottom: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+
+      .drawer-logo {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        text-decoration: none;
+      }
+
+      .drawer-logo i {
+        font-size: 1.3rem;
+        color: var(--gold);
+      }
+
+      .drawer-logo span {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .drawer-close {
+        background: none;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: var(--brown-mid);
+        transition: background .18s, color .18s;
+      }
+
+      .drawer-close:hover {
+        background: rgba(184, 124, 79, .1);
+        color: var(--gold);
+      }
+
+      .drawer-nav {
+        flex: 1;
+        padding: 1rem;
+      }
+
+      .drawer-section-label {
+        font-size: .7rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--brown-light);
+        font-weight: 500;
+        padding: .6rem .7rem .3rem;
+      }
+
+      .drawer-nav a {
+        display: flex;
+        align-items: center;
+        gap: .7rem;
+        padding: .7rem .75rem;
+        border-radius: 9px;
+        text-decoration: none;
+        font-size: .92rem;
+        font-weight: 500;
+        color: var(--brown-dark);
+        transition: background .18s, color .18s;
+        margin-bottom: .1rem;
+      }
+
+      .drawer-nav a i {
+        width: 18px;
+        text-align: center;
+        color: var(--gold);
+        font-size: .88rem;
+      }
+
+      .drawer-nav a:hover {
+        background: rgba(184, 124, 79, .1);
+        color: var(--gold);
+      }
+
+      /* active state for drawer links */
+      .drawer-nav a.active {
+        background: rgba(196, 123, 62, 0.15);
+        color: var(--gold);
+        border-left: 2px solid var(--gold);
+        border-radius: 9px 4px 4px 9px;
+      }
+
+      .drawer-sub a {
+        padding: .55rem .75rem .55rem 2.5rem;
+        font-size: .86rem;
+        font-weight: 400;
+        color: var(--brown-mid);
+      }
+
+      .drawer-sub a:hover {
+        color: var(--gold);
+      }
+
+      .drawer-sub a.active {
+        background: rgba(196, 123, 62, 0.12);
+        color: var(--gold);
+      }
+
+      .drawer-divider {
+        height: 1px;
+        background: var(--border);
+        margin: .6rem .75rem;
+      }
+
+      .drawer-footer {
+        padding: 1rem 1.4rem 1.4rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: .6rem;
+        flex-shrink: 0;
+      }
+
+      .btn-drawer-primary {
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        padding: .7rem 1.2rem;
+        border-radius: 9px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: .9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background .2s;
+        text-align: center;
+      }
+
+      .btn-drawer-primary:hover {
+        background: var(--gold-dark);
+      }
+
+      .btn-drawer-outline {
+        background: transparent;
+        color: var(--brown-dark);
+        border: 1px solid var(--border);
+        padding: .7rem 1.2rem;
+        border-radius: 9px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: .9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: border-color .2s, color .2s;
+        text-align: center;
+      }
+
+      .btn-drawer-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* ----- DRAWER CONTROLS (dark/rtl/profile) styles (unchanged) ----- */
+      .drawer-enhanced-controls {
+        margin: 0.5rem 0 0.2rem;
+        border-top: 1px solid var(--border);
+        padding-top: 0.6rem;
+      }
+
+      .drawer-control-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.7rem 0.75rem;
+        border-radius: 9px;
+        margin-bottom: 0.3rem;
+        transition: background 0.18s;
+        cursor: pointer;
+      }
+
+      .drawer-control-item span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+
+      .drawer-control-item span i {
+        width: 20px;
+        color: var(--gold);
+      }
+
+      .drawer-control-item .toggle-badge {
+        font-size: 0.75rem;
+        background: rgba(184, 124, 79, 0.15);
+        padding: 0.2rem 0.5rem;
+        border-radius: 30px;
+      }
+
+      .drawer-control-item:hover {
+        background: rgba(184, 124, 79, 0.08);
+      }
+
+      .drawer-user-profile {
+        position: relative;
+        margin-top: 0.2rem;
+      }
+
+      .profile-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .profile-submenu {
+        margin-top: 0.2rem;
+        margin-left: 2rem;
+        padding-left: 0.5rem;
+        border-left: 2px solid var(--gold-light);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease-out;
+      }
+
+      .profile-submenu.open {
+        max-height: 120px;
+      }
+
+      .profile-submenu a {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        color: var(--brown-mid);
+        transition: background 0.18s;
+      }
+
+      .profile-submenu a i {
+        width: 18px;
+        color: var(--gold);
+      }
+
+      .profile-submenu a:hover {
+        background: rgba(184, 124, 79, 0.1);
+        color: var(--gold);
+      }
+
+      /* responsive overrides */
+      @media (max-width: 1024px) {
+        .nav-links {
+          display: none !important;
+        }
+        .nav-actions {
+          display: none !important;
+        }
+        .mob-actions {
+          display: flex !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 0 1.2rem;
+        }
+      }
+
+      /* demo spacer */
+      .demo-note {
+        text-align: center;
+        margin-top: 4rem;
+        padding: 2rem 1rem;
+        color: var(--brown-mid);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .demo-note p {
+        margin-bottom: 0.5rem;
+      }
+      .demo-note small {
+        opacity: 0.7;
+      }

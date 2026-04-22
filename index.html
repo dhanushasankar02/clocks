@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Antique Clock | Modern Horology Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./shared.css">
+    <style>
+      /* Page Specific Styles for Home 2 */
+      
+      /* SECTION 1: Modern Hero */
+      .home2-hero {
+        position: relative;
+        padding: 10rem 2rem 8rem;
+        background: linear-gradient(135deg, rgba(30,25,20,0.95), rgba(45,35,25,0.85)), url('./image/imag3.jpg') center/cover no-repeat;
+        border-bottom: 2px solid var(--gold);
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+      }
+      .home2-hero .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      .home2-hero-text h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        color: #fcefdc;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+      .home2-hero-text h1 span {
+        color: var(--gold);
+        font-style: italic;
+      }
+      .home2-hero-text p {
+        font-size: 1.1rem;
+        color: rgba(255, 245, 230, 0.85);
+        margin-bottom: 2rem;
+        max-width: 480px;
+        line-height: 1.6;
+      }
+      .hero2-btn {
+        background: var(--gold);
+        color: #1a1510;
+        padding: 1rem 2rem;
+        border-radius: 4px; /* modern sharp edge */
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .hero2-btn:hover {
+        background: #fff;
+        color: var(--gold-dark);
+        transform: translateY(-3px);
+      }
+      .home2-hero-img-wrapper {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      }
+      .home2-hero-img-wrapper img {
+        width: 100%;
+        height: 70vh;
+        display: block;
+        transition: transform 0.8s ease;
+        object-fit: cover;
+      }
+      .home2-hero-img-wrapper:hover img {
+        transform: scale(1.05);
+      }
+      .hero-tagline {
+        position: absolute;
+        bottom: 20px;
+        left: -30px;
+        background: var(--cream);
+        color: var(--brown-dark);
+        padding: 1rem 1.5rem;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-left: 4px solid var(--gold);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        z-index: 10;
+      }
+      body.dark .hero-tagline {
+        background: #2a221b;
+        color: #fcefdc;
+      }
+
+      /* SECTION 2: Featured Collections */
+      .collections-sec {
+        padding: 5rem 0;
+        background: var(--cream);
+      }
+      .sec-header {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+      .sec-header h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.8rem;
+        color: var(--gold-dark);
+        margin-bottom: 0.5rem;
+      }
+      body.dark .sec-header h2 { color: var(--gold); }
+      .coll-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      .coll-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .coll-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-color: var(--gold);
+      }
+      .coll-img {
+        height: 240px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .coll-content {
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .coll-content h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .coll-content p {
+        font-size: 0.9rem;
+        color: var(--brown-mid);
+        margin-bottom: 1rem;
+      }
+      .coll-link {
+        color: var(--gold);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-decoration: none;
+      }
+
+      /* SECTION 3: The Master's Chronicle */
+      .chronicle-sec {
+        padding: 5rem 0;
+        background: var(--cream-mid);
+        border-top: 1px solid var(--border);
+      }
+      .chronicle-flex {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+      .chronicle-text {
+        flex: 1;
+      }
+      .chronicle-text h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .chronicle-text p {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+        color: var(--brown-mid);
+      }
+      .timeline {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .time-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 3px solid var(--gold);
+      }
+      .time-year {
+        font-weight: 700;
+        color: var(--gold);
+        font-size: 1.2rem;
+      }
+      .time-desc {
+        font-size: 0.95rem;
+      }
+      .time-desc h4 { margin-bottom: 0.3rem }
+
+      /* SECTION 4: Modern Services Showcase */
+      .services-modern {
+        padding: 5rem 0;
+        background: var(--cream);
+        border-top: 1px solid var(--border);
+      }
+      .serv-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .serv-box {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        transition: all 0.3s;
+        border-radius: 6px;
+      }
+      .serv-box:hover {
+        background: rgba(212, 175, 55, 0.05);
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
+      .serv-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+      .serv-box.dark-icon .serv-icon {
+        background: #1a1510;
+        color: var(--gold);
+      }
+      body.dark .serv-box.dark-icon .serv-icon { background: #332b21; }
+
+      /* SECTION 5: Parallax Banner */
+      .parallax-banner {
+        padding: 8rem 0;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549487532-a5e2f7535560?q=80&w=2070&auto=format') center/cover fixed;
+        text-align: center;
+        color: #fff;
+      }
+      .parallax-banner h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+      .parallax-banner p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        color: #e2dbcf;
+      }
+
+      /* SECTION 6: Latest from the bench */
+      .blog-sec {
+        padding: 5rem 0;
+        background: var(--cream-mid);
+      }
+      .b-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      .b-card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        transition: all 0.2s;
+      }
+      .b-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+      .b-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .b-info {
+        padding: 1.5rem;
+      }
+      .b-meta {
+        font-size: 0.8rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .b-info h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .b-info a {
+        color: var(--brown-mid);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .b-info a:hover { color: var(--gold); }
+
+      /* NEW SECTION: Master Horologists */
+      .team-sec {
+        padding: 5rem 0;
+        background: var(--cream);
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      .team-card {
+        text-align: center;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 2rem 1.5rem;
+        transition: transform 0.3s;
+      }
+      .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-color: var(--gold);
+      }
+      .team-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1rem;
+        border: 3px solid var(--gold-light);
+      }
+      .team-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+      }
+      .team-card .role {
+        color: var(--gold);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .team-card p {
+        font-size: 0.9rem;
+        color: var(--brown-mid);
+        line-height: 1.5;
+      }
+
+      /* NEW SECTION: Client Testimonials */
+      .testi-sec {
+        padding: 5rem 0;
+        background: var(--cream-mid);
+        border-top: 1px solid var(--border);
+      }
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .testi-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--gold);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      }
+      .testi-card p {
+        font-style: italic;
+        color: var(--brown-mid);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .testi-client {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .testi-client .t-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--gold-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+      }
+      .testi-client h4 {
+        margin: 0;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.2rem;
+      }
+      .testi-client span {
+        font-size: 0.8rem;
+        color: var(--brown-mid);
+      }
+
+      /* SECTION 7: Newsletter */
+      .newsletter-sec {
+        padding: 5rem 0;
+        background: var(--cream);
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+      .newsletter-sec h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+      .newsletter-sec p { color: var(--brown-mid); }
+      .news-form {
+        max-width: 500px;
+        margin: 2rem auto 0;
+        display: flex;
+        border: 1px solid var(--gold);
+        border-radius: 30px;
+        overflow: hidden;
+      }
+      .news-form input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: none;
+        background: var(--card-bg);
+        color: var(--brown-dark);
+        outline: none;
+      }
+      body.dark .news-form input {
+        color: #fff;
+      }
+      .news-form button {
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        padding: 0 2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .news-form button:hover {
+        background: var(--gold-dark);
+      }
+
+      @media(max-width: 992px) {
+        .home2-hero .container { grid-template-columns: 1fr; }
+        .hero-tagline { left: 20px; bottom: -20px; }
+        .chronicle-flex { flex-direction: column; }
+        .coll-grid, .b-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media(max-width: 768px) {
+        .serv-grid { grid-template-columns: 1fr; }
+        .coll-grid, .b-grid, .team-grid, .testi-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+
+    <!-- Navbar Wrapper -->
+    <div class="nav-wrapper">
+      <div class="container">
+        <nav>
+          <a href="./index.html" class="logo">
+            <i class="fas fa-hourglass-half logo-icon"></i>
+            <span class="logo-name">Antique Clock</span>
+          </a>
+          <ul class="nav-links">
+            <li class="ddrop">
+              <button class="ddrop-btn active"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down chevron"></i></button>
+              <div class="ddrop-menu">
+                <a href="./index.html">Home 1</a>
+                <a href="./home 2.html" class="active">Home 2</a>
+              </div>
+            </li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
+            <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
+            <div class="user-ddrop">
+              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+              </button>
+              <div class="user-ddrop-menu" id="userDropMenu">
+                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <div class="mob-actions">
+            <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Drawer panel -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <a href="./index.html" class="drawer-logo" data-close><i class="fas fa-hourglass-half"></i><span>Antique Clock</span></a>
+        <button class="drawer-close" id="closeDrawer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="drawer-nav">
+        <div class="drawer-section-label">Navigation</div>
+        <a href="javascript:void(0)" class="active" data-close><i class="fas fa-home"></i> Home</a>
+        <div class="drawer-sub">
+          <a href="./index.html" data-close>Home 1 — Classic</a>
+          <a href="./home 2.html" class="active" data-close>Home 2 — Modern</a>
+        </div>
+        <a href="./about.html" data-close>About</a>
+        <a href="./services.html" data-close>Services</a>
+        <a href="./gallery.html" data-close>Gallery</a>
+        <a href="./blog.html" data-close>Blog</a>
+        <a href="./contact.html" data-close>Contact</a>
+        <div class="drawer-divider"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: Modern Split Hero -->
+    <section class="home2-hero">
+      <div class="container">
+        <div class="home2-hero-text">
+          <h1>Modern <span>Mastery</span> of Antiquity</h1>
+          <p>We blend contemporary precision diagnostics with time-honored techniques, offering the elite standard in clock restoration for the modern collector.</p>
+          <a href="./services.html" class="hero2-btn">Explore Heritage <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+        <div class="home2-hero-img-wrapper">
+          <img src="./image/Home2main.jpg " alt="Clock making showcase">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Featured Collections -->
+    <section class="collections-sec">
+      <div class="container">
+        <div class="sec-header">
+          <h2>Boutique Horology</h2>
+          <p>A curated selection of our most requested specializations.</p>
+        </div>
+        <div class="coll-grid">
+          <div class="coll-card">
+            <img src="./image/imag1.jpg" alt="Pocket Watches" class="coll-img">
+            <div class="coll-content">
+              <h3>Pocket Watch Revival</h3>
+              <p>Specialized fine mechanics servicing for 19th-century pocket timepieces.</p>
+              <a href="#" class="coll-link">Discover More</a>
+            </div>
+          </div>
+          <div class="coll-card">
+            <img src="./image/imag2.jpg" alt="Mantle Clocks" class="coll-img">
+            <div class="coll-content">
+              <h3>Vintage Mantle Clocks</h3>
+              <p>Re-polishing mahogany veneer and balancing complex carriage chime.</p>
+              <a href="#" class="coll-link">Discover More</a>
+            </div>
+          </div>
+          <div class="coll-card">
+            <img src="./image/imag3.jpg" alt="Grandfather Clocks" class="coll-img">
+            <div class="coll-content">
+              <h3>Regency Corner Variants</h3>
+              <p>Full-scale on-site diagnostics and repairs for heirloom corner clocks.</p>
+              <a href="#" class="coll-link">Discover More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: The Master's Chronicle -->
+    <section class="chronicle-sec">
+      <div class="container">
+        <div class="chronicle-flex">
+          <div class="chronicle-text">
+            <h2>Our Timeline of Excellence</h2>
+            <p>From an independent workbench to an internationally recognized atelier, our commitment to honoring horological history remains unyielding. We have dedicated decades strictly to the understanding of intricate mechanics, saving thousands of clocks from obscurity.</p>
+            <p>Experience the journey of a modern guild, dedicated exclusively to the rhythms of the past.</p>
+          </div>
+          <div class="timeline">
+            <div class="time-item">
+              <div class="time-year">1982</div>
+              <div class="time-desc">
+                <h4>Humble Beginnings</h4>
+                <p>Opening our very first workbench in the quiet streets, repairing neighborhood heirlooms.</p>
+              </div>
+            </div>
+            <div class="time-item">
+              <div class="time-year">1999</div>
+              <div class="time-desc">
+                <h4>The Guild Alliance</h4>
+                <p>Partnering with master clockmakers across the globe to import the highest quality brass parts.</p>
+              </div>
+            </div>
+            <div class="time-item">
+              <div class="time-year">2015</div>
+              <div class="time-desc">
+                <h4>Digital Calibration</h4>
+                <p>Integrating modern ultrasonic and laser alignments, significantly extending gear life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Modern Services Showcase -->
+    <section class="services-modern">
+      <div class="container">
+        <div class="sec-header">
+          <h2>Precision Services</h2>
+          <p>Where artistry and absolute mathematical precision intersect.</p>
+        </div>
+        <div class="serv-grid">
+          <div class="serv-box">
+            <div class="serv-icon"><i class="fas fa-stethoscope"></i></div>
+            <div>
+              <h3>Absolute Diagnostics</h3>
+              <p>We trace every friction point with digital telemetry to find issues before they escalate.</p>
+            </div>
+          </div>
+          <div class="serv-box dark-icon">
+            <div class="serv-icon"><i class="fas fa-gem"></i></div>
+            <div>
+              <h3>Jewel Verification</h3>
+              <p>Inspecting ruby and sapphire escapement pallets to ensure virtually zero friction.</p>
+            </div>
+          </div>
+          <div class="serv-box dark-icon">
+            <div class="serv-icon"><i class="fas fa-hammer"></i></div>
+            <div>
+              <h3>Handcrafted Parts</h3>
+              <p>Milling brass components and lathe-turning arbors when completely obsolete.</p>
+            </div>
+          </div>
+          <div class="serv-box">
+            <div class="serv-icon"><i class="fas fa-paint-brush"></i></div>
+            <div>
+              <h3>Case Refinishing</h3>
+              <p>Re-applying shellac and bringing antique wood veneer back to a glowing luster.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Parallax Banner CTA -->
+    <section class="parallax-banner">
+      <div class="container">
+        <h2>Does It Need Immediate Care?</h2>
+        <p>Hesitation is the enemy of fine mechanics. Bring your timepiece to our modern studio and ensure its beat goes on for another hundred years.</p>
+        <a href="./contact.html" class="hero2-btn">Get In Touch</a>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Latest from the bench -->
+    <section class="blog-sec">
+      <div class="container">
+        <div class="sec-header">
+          <h2>From the Workbench</h2>
+          <p>Read about our recent iconic restorations.</p>
+        </div>
+        <div class="b-grid">
+          <div class="b-card">
+            <img src="./image/imag4.jpg" alt="Blog Image" class="b-img">
+            <div class="b-info">
+              <span class="b-meta">Restoration</span>
+              <h3>Saving the 1910 Mantel</h3>
+              <p>Discover how we sourced century-old mahogany to perfectly patch a damaged base...</p>
+              <a href="./blog.html">Read Story →</a>
+            </div>
+          </div>
+          <div class="b-card">
+            <img src="./image/imag5.jpg" alt="Blog Image" class="b-img">
+            <div class="b-info">
+              <span class="b-meta">Technique</span>
+              <h3>The Art of Regulating</h3>
+              <p>Why using an acoustic timer creates a dramatically more accurate tempo for hairsprings...</p>
+              <a href="./blog.html">Read Story →</a>
+            </div>
+          </div>
+          <div class="b-card">
+            <img src="./image/Caring for Your Clock.jpg" alt="Blog Image" class="b-img">
+            <div class="b-info">
+              <span class="b-meta">Advice</span>
+              <h3>Caring for Your Clock</h3>
+              <p>Three essential rules to follow if you want your grandfather clock to keep accurate time...</p>
+              <a href="./blog.html">Read Story →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Master Horologists -->
+    <section class="team-sec">
+      <div class="container">
+        <div class="sec-header">
+          <h2>The Artisans Behind the Dials</h2>
+          <p>Meet the master watchmakers entrusted with reviving your irreplaceable heirlooms.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="./image/home2.png" alt="Head Horologist" class="team-img">
+            <h3>Arthur Pendelton</h3>
+            <span class="role">Master Horologist</span>
+            <p>With over 40 years of experience, Arthur specializes in restoring 18th-century French mantle clocks and fusee mechanisms.</p>
+          </div>
+          <div class="team-card">
+            <img src="./image/home3.jpg" alt="Case Restoration Expert" class="team-img">
+            <h3>Eleanor Vance</h3>
+            <span class="role">Case Restoration Expert</span>
+            <p>Eleanor is a classically trained woodsmith who brings antique mahogany, walnut, and oak clock cases back to life.</p>
+          </div>
+          <div class="team-card">
+            <img src="./image/home4.jpg" alt="Complications Specialist" class="team-img">
+            <h3>Julian Sterling</h3>
+            <span class="role">Complications Specialist</span>
+            <p>Julian’s unmatched precision guarantees perfectly tuned moon phases, perpetual calendars, and intricate quarter chimes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Client Testimonials -->
+    <section class="testi-sec">
+      <div class="container">
+        <div class="sec-header">
+          <h2>Voices of the Collectors</h2>
+          <p>Hear from those who trusted us with their most treasured pieces of time.</p>
+        </div>
+        <div class="testi-grid">
+          <div class="testi-card">
+            <p>"The team miraculously revived my great-grandfather's pocket watch that hadn't ticked since 1950. Their communication and photo updates during the restoration process were deeply appreciated."</p>
+            <div class="testi-client">
+              <div class="t-icon"><i class="fas fa-user-tie"></i></div>
+              <div>
+                <h4>Maxwell R.</h4>
+                <span>Vintage Collector, London</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p>"I was terrified to hand over my French carriage clock, but Julian and Eleanor returned it looking and sounding exactly as it must have on the day it was built. True artisans of the highest order."</p>
+            <div class="testi-client">
+              <div class="t-icon"><i class="fas fa-gem"></i></div>
+              <div>
+                <h4>Sophia L.</h4>
+                <span>Heirloom Owner, New York</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Newsletter -->
+    <section class="newsletter-sec">
+      <div class="container">
+        <h2>Join Our Guild</h2>
+        <p>Subscribe for exclusive horological articles, care tips, and studio news.</p>
+        <div class="news-form">
+          <input type="email" placeholder="Your email address">
+          <button type="submit">Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <i class="fas fa-hourglass-half"></i><span class="footer-logo-name">Antique Clock</span>
+            </div>
+            <p>Preserving heirloom timepieces with masterful care & icon-driven precision.</p>
+            <div class="footer-tagline">"Restoring timeless craftsmanship"</div>
+            <div class="social-row">
+              <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Full Restoration</a></li>
+              <li><a href="#">Clock Repair</a></li>
+              <li><a href="./services.html">Diagnostics</a></li>
+              <li><a href="#">Case Refinishing</a></li>
+              <li><a href="#">Parts Sourcing</a></li>
+              <li><a href="#">Maintenance Plans</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li><a href="./services.html">Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-row">
+              <i class="fas fa-map-marker-alt"></i><span>42 Clockmaker's Lane, NY 10012</span>
+            </div>
+            <div class="contact-row">
+              <i class="fas fa-phone-alt"></i><span>+1 (555) 782-3562</span>
+            </div>
+            <div class="contact-row">
+              <i class="fas fa-envelope"></i><span>hello@antiqueclockservice.com</span>
+            </div>
+            <div class="contact-row">
+              <i class="fas fa-heart" style="color:var(--gold); font-size: 0.8rem; margin-right: 5px;"></i><span>Tailored Heirloom Care</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2026 Antique Clock Service — Iconic Craftsmanship</div>
+          <div class="legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./nav.js"></script>
+</body>
+</html>
