@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -276,12 +276,18 @@
       border: 3px solid #00A896; /* Teal border from image */
       overflow: hidden;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .team-img-wrapper img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center;
       transition: 0.4s;
     }
     .team-social-overlay {
@@ -830,11 +836,14 @@
   <style>
     /* ADDITION ONLY: background image for .mission-section (subtle luxurious texture) */
     .mission-section {
-      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format');
+      background-image: linear-gradient(rgba(252, 248, 240, 0.85), rgba(252, 248, 240, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format');
       background-size: cover;
       background-position: center;
-      background-blend-mode: soft-light;
+      background-blend-mode: normal;
       background-repeat: no-repeat;
+    }
+    body.dark .mission-section {
+      background-image: linear-gradient(rgba(34, 30, 24, 0.85), rgba(34, 30, 24, 0.85)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format') !important;
     }
   </style>
 
@@ -933,18 +942,10 @@
             <li><a href="./contact.html">Contact</a></li>
             
           </ul>
-          <div class="nav-actions">
+            <div class="nav-actions">
             <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
             <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
-            <div class="user-ddrop">
-              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user-circle"></i>
-              </button>
-              <div class="user-ddrop-menu" id="userDropMenu">
-                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
-              </div>
-            </div>
+            <a href="./login.html" style="background: #C6A43B; color: #1a1510; padding: 0.4rem 1.2rem; border-radius: 4px; font-weight: 600; text-decoration: none; margin-left: 10px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif;">Login</a>
           </div>
           <!-- Mobile hamburger -->
           <div class="mob-actions">
@@ -968,13 +969,11 @@
           <a href="./index.html" data-close>Home 1 — Classic</a>
           <a href="./home 2.html" data-close>Home 2 — Modern</a>
         </div>
-        <a href="./about.html" data-close><i class="fas fa-info-circle"></i> About</a>
-        <a href="./services.html" data-close><i class="fas fa-tools"></i> Services</a>
-        <a href="./gallery.html" data-close><i class="fas fa-images"></i> Gallery</a>
-        <a href="./blog.html" data-close><i class="fas fa-feather-alt"></i> Blog</a>
-        <a href="./contact.html" data-close><i class="fas fa-envelope"></i> Contact</a>
-        <div class="drawer-divider"></div>
-        
+        <a href="./about.html" data-close>About</a>
+        <a href="./services.html" data-close>Services</a>
+        <a href="./gallery.html" data-close>Gallery</a>
+        <a href="./blog.html" data-close>Blog</a>
+        <a href="./contact.html" data-close>Contact</a>
         <div class="drawer-divider"></div>
         <!-- Enhanced controls injected via JS -->
       </div>
@@ -1010,7 +1009,7 @@
       <!-- David Sterling -->
       <div class="team-card reveal">
         <div class="team-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format" alt="David Sterling">
+          <img src="./image/David Sterling.jpg" alt="David Sterling">
           <div class="team-social-overlay">
             <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
@@ -1023,7 +1022,7 @@
       <!-- Sarah Jenkins -->
       <div class="team-card reveal">
         <div class="team-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format" alt="Sarah Jenkins">
+          <img src="./image/Sarah Jenkins1.jpg" alt="Sarah Jenkins">
           <div class="team-social-overlay">
             <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
@@ -1036,7 +1035,7 @@
       <!-- Marcus Chen -->
       <div class="team-card reveal">
         <div class="team-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format" alt="Marcus Chen">
+          <img src="./image/Marcus Chen1.jpg" alt="Marcus Chen">
           <div class="team-social-overlay">
             <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
@@ -1049,7 +1048,7 @@
       <!-- Elena Rodriguez -->
       <div class="team-card reveal">
         <div class="team-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format" alt="Elena Rodriguez">
+          <img class="imges" src="./image/Elena Rodriguez3.jpeg" alt="Elena Rodriguez">
           <div class="team-social-overlay">
             <a href="#" class="social-icn"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" class="social-icn"><i class="fab fa-twitter"></i></a>
@@ -1386,4 +1385,3 @@
 
 </body>
 </html>
-my 

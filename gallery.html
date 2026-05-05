@@ -228,12 +228,30 @@
       font-weight: 600;
       margin-bottom: 0.3rem;
       font-size: 1.2rem;
+      transition: color 0.2s;
     }
 
     .feature-item p {
       font-size: 0.85rem;
       color: #DBCBAE;
       line-height: 1.4;
+      transition: color 0.2s;
+    }
+
+    .feature-item:hover h4 {
+      color: #1a1510;
+    }
+    
+    .feature-item:hover p {
+      color: #3b2c1d;
+    }
+
+    body.dark .feature-item:hover h4 {
+      color: #FFFAF0;
+    }
+
+    body.dark .feature-item:hover p {
+      color: #DBCBAE;
     }
 
     /* About story, services, testimonials */
@@ -474,15 +492,7 @@
           <div class="nav-actions">
             <button class="icon-btn" id="darkToggle" aria-label="Dark mode"><i class="fa-solid fa-moon"></i></button>
             <button class="icon-btn" id="rtlToggle" aria-label="RTL mode"><i class="fa-solid fa-right-left"></i></button>
-            <div class="user-ddrop">
-              <button class="icon-btn" id="userToggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user-circle"></i>
-              </button>
-              <div class="user-ddrop-menu" id="userDropMenu">
-                <a href="./login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="./register.html"><i class="fas fa-user-plus"></i> Register</a>
-              </div>
-            </div>
+            <a href="./login.html" style="background: #C6A43B; color: #1a1510; padding: 0.4rem 1.2rem; border-radius: 4px; font-weight: 600; text-decoration: none; margin-left: 10px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif;">Login</a>
           </div>
           <!-- Mobile hamburger -->
           <div class="mob-actions">
@@ -531,11 +541,11 @@
   <div class="gallery-grid">
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?q=80&w=1000&auto=format" data-title="Swiss Tourbillon" data-desc="Complete 3-axis tourbillon overhaul">
       <img class="card-img" src="./image/Swiss Tourbillon.jpg" alt="Swiss Tourbillon" loading="lazy">
-      <div class="card-info"><h3>Swiss Tourbillon</h3><p>Complete 3-axis tourbillon overhaul.</p><span class="card-tag"><i class="fas fa-sync-alt"></i> tourbillon</span></div>
+      <div class="card-info"><h3>Swiss Tourbillon</h3><p>Complete 3-axis tourbillon.</p><span class="card-tag"><i class="fas fa-sync-alt"></i> tourbillon</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1000&auto=format" data-title="Vintage Chronograph" data-desc="1960s mechanical chronograph restoration">
       <img class="card-img" src="./image/Vintage Chronograph.jpg" alt="Chronograph" loading="lazy">
-      <div class="card-info"><h3>Vintage Chronograph</h3><p>Full service of column-wheel mechanism.</p><span class="card-tag"><i class="fas fa-stopwatch"></i> chronograph</span></div>
+      <div class="card-info"><h3>Vintage Chronograph</h3><p>Full service of column-wheel.</p><span class="card-tag"><i class="fas fa-stopwatch"></i> chronograph</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=1000&auto=format" data-title="Dive Watch Restoration" data-desc="Resealed, pressure tested to 300m">
       <img class="card-img" src="./image/Dive Watch Reseal.jpg" alt="Dive Watch" loading="lazy">
@@ -547,15 +557,15 @@
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1612053644070-51ee086b976f?q=80&w=1000&auto=format" data-title="Gold Dress Watch" data-desc="18k gold case polishing & service">
       <img class="card-img" src="./image/Gold Dress Watch.jpg" alt="Dress Watch" loading="lazy">
-      <div class="card-info"><h3>Gold Dress Watch</h3><p>18k gold polishing & ultrasonic clean.</p><span class="card-tag"><i class="fas fa-gem"></i> dress</span></div>
+      <div class="card-info"><h3>Gold Dress Watch</h3><p>18k gold polishing & ultrasonic.</p><span class="card-tag"><i class="fas fa-gem"></i> dress</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1000&auto=format" data-title="Military Pilot Watch" data-desc="Lume match & anti-magnetic service">
       <img class="card-img" src="./image/Military Pilot Watch.jpg" alt="Pilot Watch" loading="lazy">
-      <div class="card-info"><h3>Military Pilot Watch</h3><p>Radium matching & escapement fixing.</p><span class="card-tag"><i class="fas fa-plane"></i> aviation</span></div>
+      <div class="card-info"><h3>Military Pilot Watch</h3><p>Radium matching & escapement.</p><span class="card-tag"><i class="fas fa-plane"></i> aviation</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?q=80&w=1000&auto=format" data-title="Automatic Movement" data-desc="Rotor bearing & reversing wheel fix">
       <img class="card-img" src="./image/Caliber Maintenance.jpg" alt="Automatic Movement" loading="lazy">
-      <div class="card-info"><h3>Caliber Maintenance</h3><p>Mainspring replacement, lubrication.</p><span class="card-tag"><i class="fas fa-cogs"></i> automatic</span></div>
+      <div class="card-info"><h3>Caliber Maintenance</h3><p>Mainspring replacement.</p><span class="card-tag"><i class="fas fa-cogs"></i> automatic</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1594535182308-8ffefbb661e1?q=80&w=1000&auto=format" data-title="Hand-Wound Caliber" data-desc="Geneva seal standard polishing">
       <img class="card-img" src="./image/Hand-Wound Caliber.jpg" alt="Hand Wound Caliber" loading="lazy">
@@ -563,11 +573,11 @@
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1000&auto=format" data-title="Perpetual Calendar" data-desc="Complete day-date sync overhaul">
       <img class="card-img" src="./image/Perpetual Calendar.jpg" alt="Perpetual Calendar" loading="lazy">
-      <div class="card-info"><h3>Perpetual Calendar</h3><p>Complete mechanical sync overhaul.</p><span class="card-tag"><i class="fas fa-calendar-alt"></i> calendar</span></div>
+      <div class="card-info"><h3>Perpetual Calendar</h3><p>Complete mechanical sync.</p><span class="card-tag"><i class="fas fa-calendar-alt"></i> calendar</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1000&auto=format" data-title="Skeleton Watch" data-desc="Bridge polishing & chamfering">
       <img class="card-img" src="./image/Skeleton Watch.jpg" alt="Skeleton Watch" loading="lazy">
-      <div class="card-info"><h3>Skeleton Watch</h3><p>Micro-bridge polishing & chamfering.</p><span class="card-tag"><i class="fas fa-eye"></i> skeleton</span></div>
+      <div class="card-info"><h3>Skeleton Watch</h3><p>Micro-bridge polishing.</p><span class="card-tag"><i class="fas fa-eye"></i> skeleton</span></div>
     </div>
     <div class="gallery-card" data-img="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=1000&auto=format" data-title="Moonphase Complication" data-desc="Enamel disc restoration & gearing">
       <img class="card-img" src="./image/Moonphase Disc.jpg" alt="Moonphase" loading="lazy">
